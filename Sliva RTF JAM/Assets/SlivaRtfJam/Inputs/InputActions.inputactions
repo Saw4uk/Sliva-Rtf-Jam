@@ -40,6 +40,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ChoosePistol",
+                    "type": "Button",
+                    "id": "a2c45619-36c0-47f2-bb5a-957842870dec",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChooseShotgun",
+                    "type": "Button",
+                    "id": "af2734b4-992d-4d11-bf45-80da09dc22cc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChooseAK",
+                    "type": "Button",
+                    "id": "9b7c9cef-c433-49af-837a-9d9ef5309eda",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChooseRifle",
+                    "type": "Button",
+                    "id": "61a2b565-d86b-4266-bf38-1bceeec700d4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -123,11 +159,55 @@
                 {
                     "name": "",
                     "id": "ea8527dd-ee12-4bb3-825b-2c15718c034b",
-                    "path": "<Keyboard>/rightShift",
+                    "path": "<Keyboard>/backspace",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "UseShop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6f3fa732-daec-4e0d-9062-2e32456bedf9",
+                    "path": "<Keyboard>/rightCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChoosePistol",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ffabd086-791f-4b00-8484-1ce66fa36f61",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChooseShotgun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "daba97f9-dcd0-46b3-8758-673085611520",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChooseAK",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22bdc6cf-b1a6-4b76-8c5a-54b00d645869",
+                    "path": "<Keyboard>/slash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChooseRifle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
