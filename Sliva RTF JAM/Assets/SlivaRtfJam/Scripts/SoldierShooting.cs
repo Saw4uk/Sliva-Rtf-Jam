@@ -1,37 +1,44 @@
 using System;
+using SlivaRtfJam.Scripts.Guns;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
-
-namespace SlivaRtfJam
+public class SoldierShooting : MonoBehaviour
 {
-    public class SoldierShooting : MonoBehaviour
+    [Header("Gun Settings")]
+    [SerializeField] private Transform gunRotator;
+    [SerializeField] private Gun gun;
+    [SerializeField] private SpriteRenderer gunSpriteRenderer;
+    
+    private Camera camera;
+
+    private void Awake()
     {
-        [Header("Gun Settings")]
-        [SerializeField] private Transform gunPivot;
-        [SerializeField] private Transform gun;
-        [SerializeField] private SpriteRenderer gunSpriteRenderer;
+        camera = Camera.main;
+    }
 
-        private Camera camera;
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        gun.OnShoot(context);
+    }
+    
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        var mouseScreenPosition = context.ReadValue<Vector2>();
+        var mouseWordPosition = camera.ScreenToWorldPoint(mouseScreenPosition);
 
-        private void Awake()
-        {
-            camera = Camera.main;
-        }
 
-        public void OnLook(InputAction.CallbackContext context)
-        {
-            var mouseScreenPosition = context.ReadValue<Vector2>();
-            var mouseWordPosition = camera.ScreenToWorldPoint(mouseScreenPosition);
-
-            gunPivot.transform.rotation = Quaternion.LookRotation(
-                Vector3.forward,
-                mouseWordPosition - transform.position
-            );
-
-            var rad = gunPivot.rotation.eulerAngles.z * Mathf.Deg2Rad;
-
-            gunSpriteRenderer.flipY = Mathf.Sin(rad) > 0;
-        }
+        var delta_x = mouseWordPosition.x - transform.position.x ;
+        var delta_y = mouseWordPosition.y - transform.position.y ;
+        var angle_rad = Math.Atan2(delta_y, delta_x);
+        var angle_deg = Mathf.Rad2Deg * angle_rad;
+        
+        var rotate = gunRotator.transform.eulerAngles;
+        rotate.z = (float)angle_deg;
+        gunRotator.transform.rotation = Quaternion.Euler(rotate);
+        var rad = gunRotator.rotation.eulerAngles.z * Mathf.Deg2Rad;
+        gun.transform.localScale = Mathf.Sin(rad - 1.5f) > 0 ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
+        
     }
 }
