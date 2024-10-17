@@ -1,34 +1,37 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
-public class SoldierShooting : MonoBehaviour
+
+namespace SlivaRtfJam
 {
-    [Header("Gun Settings")]
-    [SerializeField] private Transform gunPivot;
-    [SerializeField] private Transform gun;
-    [SerializeField] private SpriteRenderer gunSpriteRenderer;
-
-    private Camera camera;
-
-    private void Awake()
+    public class SoldierShooting : MonoBehaviour
     {
-        camera = Camera.main;
-    }
+        [Header("Gun Settings")]
+        [SerializeField] private Transform gunPivot;
+        [SerializeField] private Transform gun;
+        [SerializeField] private SpriteRenderer gunSpriteRenderer;
 
-    public void OnLook(InputAction.CallbackContext context)
-    {
-        var mouseScreenPosition = context.ReadValue<Vector2>();
-        var mouseWordPosition = camera.ScreenToWorldPoint(mouseScreenPosition);
+        private Camera camera;
 
-        gunPivot.transform.rotation = Quaternion.LookRotation(
-            Vector3.forward,
-            mouseWordPosition - transform.position
-        );
+        private void Awake()
+        {
+            camera = Camera.main;
+        }
 
-        var rad = gunPivot.rotation.eulerAngles.z * Mathf.Deg2Rad;
+        public void OnLook(InputAction.CallbackContext context)
+        {
+            var mouseScreenPosition = context.ReadValue<Vector2>();
+            var mouseWordPosition = camera.ScreenToWorldPoint(mouseScreenPosition);
 
-        gunSpriteRenderer.flipY = Mathf.Sin(rad) > 0;
+            gunPivot.transform.rotation = Quaternion.LookRotation(
+                Vector3.forward,
+                mouseWordPosition - transform.position
+            );
+
+            var rad = gunPivot.rotation.eulerAngles.z * Mathf.Deg2Rad;
+
+            gunSpriteRenderer.flipY = Mathf.Sin(rad) > 0;
+        }
     }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "Inputs",
+    "name": "InputActions",
     "maps": [
         {
             "name": "Soldier",
@@ -27,6 +27,15 @@
                     "name": "Shoot",
                     "type": "Button",
                     "id": "3529450c-84ac-47c5-89d6-c97e5e379306",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UseShop",
+                    "type": "Button",
+                    "id": "f66fa283-7a1c-4e2f-aef1-458f10a801b5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -110,6 +119,17 @@
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea8527dd-ee12-4bb3-825b-2c15718c034b",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseShop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -125,6 +145,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "UseShop",
+                    "type": "Button",
+                    "id": "8290b603-6b87-4d62-b7ac-bfbfb278bcad",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -182,6 +211,17 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "1c546b30-d4aa-4b8e-b6d6-04404626de81",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseShop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
