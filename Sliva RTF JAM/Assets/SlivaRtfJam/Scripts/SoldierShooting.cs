@@ -28,16 +28,17 @@ public class SoldierShooting : MonoBehaviour
         var mouseScreenPosition = context.ReadValue<Vector2>();
         var mouseWordPosition = camera.ScreenToWorldPoint(mouseScreenPosition);
 
-        gunRotator.transform.rotation = Quaternion.LookRotation(
-            Vector3.forward,
-            mouseWordPosition - transform.position
-        );
 
+        var delta_x = mouseWordPosition.x - transform.position.x ;
+        var delta_y = mouseWordPosition.y - transform.position.y ;
+        var angle_rad = Math.Atan2(delta_y, delta_x);
+        var angle_deg = Mathf.Rad2Deg * angle_rad;
+        
+        var rotate = gunRotator.transform.eulerAngles;
+        rotate.z = (float)angle_deg;
+        gunRotator.transform.rotation = Quaternion.Euler(rotate);
         var rad = gunRotator.rotation.eulerAngles.z * Mathf.Deg2Rad;
-        if (Mathf.Sin(rad) > 0)
-            gun.transform.localScale = new Vector3(1, -1, 1);
-        else
-            gun.transform.localScale = new Vector3(1, 1, 1);
+        gun.transform.localScale = Mathf.Sin(rad - 1.5f) > 0 ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
         
     }
 }
