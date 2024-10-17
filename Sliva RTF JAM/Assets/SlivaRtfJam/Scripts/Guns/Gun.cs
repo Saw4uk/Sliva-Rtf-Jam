@@ -116,7 +116,10 @@ namespace SlivaRtfJam.Scripts.Guns
         public IEnumerator Reload()
         {
             if (CurrentAmmoTotal == 0)
+            {
                 yield break;
+            }
+
             yield return new WaitForSeconds(reloadSpeedInSeconds);
             var ammo = Math.Min(MaxAmmo, CurrentAmmoTotal);
             CurrentAmmoTotal -= ammo;
