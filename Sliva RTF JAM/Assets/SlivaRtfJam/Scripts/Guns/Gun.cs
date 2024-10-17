@@ -42,7 +42,6 @@ namespace SlivaRtfJam.Scripts.Guns
 
         
         public UnityEvent<int> ammoChanged;
-        public UnityEvent<int> maxAmmoChanged;
         public UnityEvent startReloading;
 
         public int CurrentAmmo
@@ -67,7 +66,7 @@ namespace SlivaRtfJam.Scripts.Guns
             set
             {
                 maxAmmo = value;
-                maxAmmoChanged.Invoke(maxAmmo);
+                ammoChanged.Invoke(maxAmmo);
             }
         }
 

@@ -317,6 +317,70 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 8290b603-6b87-4d62-b7ac-bfbfb278bcad
     m_ActionName: Engineer/UseShop[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7883031312240094567}
+        m_TargetAssemblyTypeName: SoldierShooting, Assembly-CSharp
+        m_MethodName: ChoosePistol
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a2c45619-36c0-47f2-bb5a-957842870dec
+    m_ActionName: Soldier/ChoosePistol[/Keyboard/rightCtrl]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7883031312240094567}
+        m_TargetAssemblyTypeName: SoldierShooting, Assembly-CSharp
+        m_MethodName: ChooseShotgun
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: af2734b4-992d-4d11-bf45-80da09dc22cc
+    m_ActionName: Soldier/ChooseShotgun[/Keyboard/rightShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7883031312240094567}
+        m_TargetAssemblyTypeName: SoldierShooting, Assembly-CSharp
+        m_MethodName: ChooseAk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9b7c9cef-c433-49af-837a-9d9ef5309eda
+    m_ActionName: Soldier/ChooseAK[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7883031312240094567}
+        m_TargetAssemblyTypeName: SoldierShooting, Assembly-CSharp
+        m_MethodName: ChooseRifle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 61a2b565-d86b-4266-bf38-1bceeec700d4
+    m_ActionName: Soldier/ChooseRifle[/Keyboard/slash]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Soldier
@@ -350,8 +414,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunRotator: {fileID: 9026895321943108816}
-  gun: {fileID: 5714901414464683302}
-  gunSpriteRenderer: {fileID: 0}
+  chosedGun: {fileID: 0}
+  guns:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 3205209080397058210}
+    - Key: 1
+      Value: {fileID: 393166956353607458}
+    - Key: 2
+      Value: {fileID: 6138462542482560792}
+    - Key: 3
+      Value: {fileID: 5714901414464683302}
+  GunParametersChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &5484094387059971616
 Rigidbody2D:
   serializedVersion: 4
@@ -422,6 +498,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9026895321943108816}
     m_Modifications:
+    - target: {fileID: 1437354606471252127, guid: 6ff69c42d382c584d9df6997e669e7b5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.215
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437354606471252127, guid: 6ff69c42d382c584d9df6997e669e7b5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.002
+      objectReference: {fileID: 0}
     - target: {fileID: 2680115490351086457, guid: 6ff69c42d382c584d9df6997e669e7b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.273
@@ -465,6 +549,10 @@ PrefabInstance:
     - target: {fileID: 4967269133083965673, guid: 6ff69c42d382c584d9df6997e669e7b5, type: 3}
       propertyPath: m_Name
       value: Rifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4967269133083965673, guid: 6ff69c42d382c584d9df6997e669e7b5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -548,6 +636,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24723a5a7a37d4840a294350a1723094, type: 3}
+--- !u!114 &3205209080397058210 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1650169284673396667, guid: 24723a5a7a37d4840a294350a1723094, type: 3}
+  m_PrefabInstance: {fileID: 4223712987746897689}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5f7dd19d8f460ea2f0eeb7c78e37c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &9216190505753679331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5006833983134964474, guid: 24723a5a7a37d4840a294350a1723094, type: 3}
@@ -567,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 178151809746504536, guid: c9f4c093fc2892046814c30c5b6687d7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7180437665271384264, guid: c9f4c093fc2892046814c30c5b6687d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -619,6 +718,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7180437665271384264, guid: c9f4c093fc2892046814c30c5b6687d7, type: 3}
   m_PrefabInstance: {fileID: 7197547425262902014}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &393166956353607458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7392127158387363292, guid: c9f4c093fc2892046814c30c5b6687d7, type: 3}
+  m_PrefabInstance: {fileID: 7197547425262902014}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ed99104861475b895619a8e7fbb28c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8308296058772168443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -685,3 +795,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8494212026904120482, guid: df04d80d307a2b5428794eba99080add, type: 3}
   m_PrefabInstance: {fileID: 8308296058772168443}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6138462542482560792 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2773315873070533091, guid: df04d80d307a2b5428794eba99080add, type: 3}
+  m_PrefabInstance: {fileID: 8308296058772168443}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5f7dd19d8f460ea2f0eeb7c78e37c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
