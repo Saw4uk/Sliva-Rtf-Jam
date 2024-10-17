@@ -38,7 +38,7 @@ public class SoldierShooting : MonoBehaviour
         rotate.z = (float)angle_deg;
         gunRotator.transform.rotation = Quaternion.Euler(rotate);
         var rad = gunRotator.rotation.eulerAngles.z * Mathf.Deg2Rad;
-        gun.transform.localScale = Mathf.Sin(rad - 1.5f) > 0 ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
+        gun.transform.localScale = Mathf.Sin(rad - 1.5f) > 0 ? new Vector3(gun.transform.localScale.x, -Math.Abs(gun.transform.localScale.y), gun.transform.localScale.z) : new Vector3(gun.transform.localScale.x, Math.Abs(gun.transform.localScale.y), gun.transform.localScale.z);
         
     }
 }

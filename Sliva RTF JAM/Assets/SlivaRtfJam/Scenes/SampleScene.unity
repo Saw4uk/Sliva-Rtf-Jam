@@ -6572,7 +6572,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6788,6 +6788,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2cef5b6911f6994f9bc5bd7b22b8ad9, type: 3}
+--- !u!114 &2141038180 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 393166956353607458, guid: ed3092ba32dcf6840b8d0a78f052134c, type: 3}
+  m_PrefabInstance: {fileID: 2635680582241127918}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ed99104861475b895619a8e7fbb28c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2635680582241127918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6796,10 +6807,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3205209080397058210, guid: ed3092ba32dcf6840b8d0a78f052134c, type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 1466601313}
+    - target: {fileID: 2177660073853589107, guid: ed3092ba32dcf6840b8d0a78f052134c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3031213904638888833, guid: ed3092ba32dcf6840b8d0a78f052134c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.215
+      objectReference: {fileID: 0}
+    - target: {fileID: 3031213904638888833, guid: ed3092ba32dcf6840b8d0a78f052134c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033003171691237798, guid: ed3092ba32dcf6840b8d0a78f052134c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7385590973228162304, guid: ed3092ba32dcf6840b8d0a78f052134c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.513
@@ -6840,9 +6863,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7883031312240094567, guid: ed3092ba32dcf6840b8d0a78f052134c, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 2141038180}
     - target: {fileID: 8801283689303184944, guid: ed3092ba32dcf6840b8d0a78f052134c, type: 3}
       propertyPath: m_Name
       value: Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010790737062607863, guid: ed3092ba32dcf6840b8d0a78f052134c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
