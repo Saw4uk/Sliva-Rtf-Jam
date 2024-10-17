@@ -99,7 +99,7 @@ namespace SlivaRtfJam.Scripts.Guns
         protected virtual void Shoot(Vector2 direction, Vector3 shootPosition)
         {
             var bullet = Instantiate(projectilePrefab, shootPosition, transform.rotation);
-            //bullet.LaunchProjectile(direction, projectileSpeed,bulletDamage);
+            bullet.LaunchProjectile(direction, projectileSpeed,bulletDamage);
 
             CurrentAmmo -= 1;
             remainingShootingDelay = shootingDelay;

@@ -34,6 +34,10 @@ public class SoldierShooting : MonoBehaviour
         );
 
         var rad = gunRotator.rotation.eulerAngles.z * Mathf.Deg2Rad;
-        gunSpriteRenderer.flipY = Mathf.Sin(rad) > 0;
+        if (Mathf.Sin(rad) > 0)
+            gun.transform.localScale = new Vector3(1, -1, 1);
+        else
+            gun.transform.localScale = new Vector3(1, 1, 1);
+        
     }
 }
