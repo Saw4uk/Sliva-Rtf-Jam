@@ -49,7 +49,6 @@ public class SoldierShooting : MonoBehaviour
     public UnityEvent GunParametersChanged;
     public UnityEvent startReloading;
     public UnityEvent endReloading;
-    private Camera camera;
 
     private void Awake()
     {
