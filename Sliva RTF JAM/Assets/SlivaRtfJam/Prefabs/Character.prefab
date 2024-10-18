@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5403417522251740101
@@ -393,6 +393,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 61a2b565-d86b-4266-bf38-1bceeec700d4
     m_ActionName: Soldier/ChooseRifle[/Keyboard/slash]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2678308c-493c-421c-a54c-91e09fdae272
+    m_ActionName: Engineer/BuildSearchlight[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Soldier
@@ -425,8 +429,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69332773990b4fd8870fcc4fbfed175e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
   gunRotator: {fileID: 9026895321943108816}
-  chosedGun: {fileID: 6138462542482560792}
+  chosedGun: {fileID: 3205209080397058210}
   guns:
     _serializedList:
     - Key: 0
@@ -604,7 +609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2640585858994116970, guid: 24723a5a7a37d4840a294350a1723094, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5006833983134964474, guid: 24723a5a7a37d4840a294350a1723094, type: 3}
       propertyPath: m_LocalPosition.x
@@ -758,7 +763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1458998012451098418, guid: df04d80d307a2b5428794eba99080add, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2773315873070533091, guid: df04d80d307a2b5428794eba99080add, type: 3}
       propertyPath: isAutomatigShooting
