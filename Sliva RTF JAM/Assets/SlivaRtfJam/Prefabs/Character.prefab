@@ -534,6 +534,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 600a6e33-547b-4be9-bd5e-ca90434da189
     m_ActionName: Engineer/Heal[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2678308c-493c-421c-a54c-91e09fdae272
+    m_ActionName: Engineer/BuildSearchlight[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Soldier
@@ -585,36 +589,6 @@ MonoBehaviour:
   GunParametersChanged:
     m_PersistentCalls:
       m_Calls: []
-  startReloading:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4284857012906697112}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  endReloading:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4284857012906697112}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!50 &5484094387059971616
 Rigidbody2D:
   serializedVersion: 4
@@ -690,7 +664,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 80
-  hpBar: {fileID: 104974358752551803}
   OnChangeHp:
     m_PersistentCalls:
       m_Calls: []
@@ -1134,17 +1107,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4610b618197cd7845897d6cea553b9e5, type: 3}
---- !u!114 &104974358752551803 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8429682984950388404, guid: 4610b618197cd7845897d6cea553b9e5, type: 3}
-  m_PrefabInstance: {fileID: 8469214385744065999}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93999258ee944616951dc2f1ec1ec3a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &464742409904501875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8357459757972160956, guid: 4610b618197cd7845897d6cea553b9e5, type: 3}

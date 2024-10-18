@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 
 public class EngineerBuildSystem : MonoBehaviour
 {
+    [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Tilemap constructionTilemap;
     [SerializeField] private TileBase searchlightTile;
     [SerializeField] private float timeToBuild;
@@ -14,11 +15,20 @@ public class EngineerBuildSystem : MonoBehaviour
     private int searchlightCount;
     private bool isBuildTurnOn = false;
 
-    public int SearchlightCount => searchlightCount;
+    public int SearchlightCount
+    {
+        get => searchlightCount;
+        set
+        {
+            searchlightCount = value;
+            OnSearchlightCountChanged?.Invoke(value);
+        }
+    }
 
     public event Action OnBuildStart;
     public event Action OnBuildEnd;
     public event Action<float> OnBuildProgress;
+    public event Action<int> OnSearchlightCountChanged;
 
     private void Awake()
     {
@@ -38,8 +48,8 @@ public class EngineerBuildSystem : MonoBehaviour
 
     public void AddSearchlight(int count)
     {
-        searchlightCount += count;
-        Debug.Log(searchlightCount);
+        SearchlightCount += count;
+        Debug.Log(SearchlightCount);
     }
 
     // При первом нажатии, если возможно, начинается процесс стройки. При повторном нажатии во время процесса стройки, стройка отменяется.
@@ -65,6 +75,7 @@ public class EngineerBuildSystem : MonoBehaviour
     private IEnumerator Build(float time, Vector3Int position, TileBase tile)
     {
         var elapsedTime = 0f;
+        playerMovement.IsBlocked = true;
         
         while (elapsedTime <= time && isBuildTurnOn)
         {
@@ -76,10 +87,11 @@ public class EngineerBuildSystem : MonoBehaviour
         if (elapsedTime >= time && isBuildTurnOn)
         {
             PlaceTile(position, tile);
-            searchlightCount--;
+            SearchlightCount--;
             isBuildTurnOn = false;
         }
         
+        playerMovement.IsBlocked = false;
         OnBuildEnd?.Invoke();
     }
 

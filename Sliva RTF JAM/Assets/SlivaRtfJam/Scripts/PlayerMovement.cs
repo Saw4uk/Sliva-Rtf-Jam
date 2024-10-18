@@ -34,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        if(isBlocked) return;
         direction = context.ReadValue<Vector2>().normalized;
     }
 
