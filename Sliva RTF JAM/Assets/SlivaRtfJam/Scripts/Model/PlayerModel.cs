@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SlivaRtfJam.Scripts.Model
 {
@@ -12,8 +13,9 @@ namespace SlivaRtfJam.Scripts.Model
         [SerializeField] private int healDelaySeconds;
         [SerializeField] private int healHP;
         private int healsAmount;
-        private Healthable healthable;
-        private PlayerMovement playerMovement;
+        [SerializeField] private Healthable healthable;
+        [SerializeField] private PlayerMovement playerMovement;
+        private bool isHealing;
         public int HealsAmount
         {
             get => healsAmount;
@@ -27,6 +29,8 @@ namespace SlivaRtfJam.Scripts.Model
         public bool IsSoldier => isSoldier;
 
         public event Action parametersChanged;
+        public UnityEvent startHealing;
+        public UnityEvent endHealing;
 
         private void Awake()
         {
@@ -37,17 +41,22 @@ namespace SlivaRtfJam.Scripts.Model
 
         public void Heal()
         {
-            StartCoroutine(HealEnumerator());
+            if(!isHealing)
+                StartCoroutine(HealEnumerator());
         }
 
         private IEnumerator HealEnumerator()
         {
+            isHealing = true;
             playerMovement.IsBlocked = true;
             characterAnimator.SetTrigger("Heal");
+            startHealing.Invoke();
             yield return new WaitForSeconds(healDelaySeconds);
             healthable.Hp += healHP;
-            healsAmount -= 1;
+            HealsAmount -= 1;
             playerMovement.IsBlocked = false;
+            isHealing = false;
+            endHealing.Invoke();
         }
     }
 }

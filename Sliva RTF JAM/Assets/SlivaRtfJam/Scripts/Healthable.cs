@@ -17,7 +17,7 @@ namespace DefaultNamespace
             get => hp;
             set
             {
-                hp = value;
+                hp = Math.Min(value, maxHp);
                 OnChangeHp?.Invoke(hp, maxHp);
 
                 if (hp <= 0)

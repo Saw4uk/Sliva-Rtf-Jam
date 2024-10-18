@@ -514,6 +514,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6ec707f5-d766-4e58-b5d3-1431127c63e3
     m_ActionName: Soldier/Reload[/Keyboard/rightBracket]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4221995217297668688}
+        m_TargetAssemblyTypeName: SlivaRtfJam.Scripts.Model.PlayerModel, Assembly-CSharp
+        m_MethodName: Heal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 21553005-14a5-490a-914b-60ee2d65656d
+    m_ActionName: Soldier/Heal
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 600a6e33-547b-4be9-bd5e-ca90434da189
+    m_ActionName: Engineer/Heal[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Soldier
@@ -691,8 +711,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterAnimator: {fileID: 6305060194093926314}
   isSoldier: 1
-  healDelaySeconds: 2
+  healDelaySeconds: 1
   healHP: 20
+  healthable: {fileID: 2332912120511300274}
+  playerMovement: {fileID: 4863131704938112375}
+  startHealing:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5070930324942491281}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  endHealing:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5070930324942491281}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1001 &4171330075360510750
 PrefabInstance:
   m_ObjectHideFlags: 0
