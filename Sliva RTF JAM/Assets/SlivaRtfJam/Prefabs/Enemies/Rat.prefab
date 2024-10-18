@@ -62,7 +62,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -81,10 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 8935983211018614976}
-  OnEnemyDetected:
-    m_PersistentCalls:
-      m_Calls: []
-  OnEnemyDisapeared:
+  OnTargetChanged:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1850602215210589168
@@ -157,8 +154,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1785926433
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.31833914, g: 0.81231344, b: 0.9411765, a: 1}
@@ -241,8 +238,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1785926433
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.31833914, g: 0.81231344, b: 0.9411765, a: 1}
@@ -269,9 +266,10 @@ GameObject:
   - component: {fileID: 8583396159902435555}
   - component: {fileID: 8935983211018614976}
   - component: {fileID: 5592367753022643580}
+  - component: {fileID: 6025662586327330893}
   m_Layer: 0
-  m_Name: Cockroach
-  m_TagString: Untagged
+  m_Name: Rat
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -381,8 +379,8 @@ MonoBehaviour:
   damage: 5
   visionDetector: {fileID: 3494855142670306467}
   attackDetector: {fileID: 129866714050097660}
-  speed: 4
-  timeToAttackMax: 1
+  speed: 6
+  attackSpeed: 1
 --- !u!114 &5592367753022643580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,13 +393,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b3bdb52f7e4ac2909b88ce0bfcccf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 20
+  maxHp: 60
   OnChangeHp:
     m_PersistentCalls:
       m_Calls: []
   OnDie:
     m_PersistentCalls:
       m_Calls: []
+--- !u!58 &6025662586327330893
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327354892205998437}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &4980367949581022163
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +497,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

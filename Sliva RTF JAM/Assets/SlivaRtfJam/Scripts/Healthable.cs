@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace DefaultNamespace
 {
-    public class CanBeDamaged : MonoBehaviour
+    public class Healthable : MonoBehaviour
     {
         [SerializeField] private float maxHp;
         private float hp;
@@ -21,7 +21,7 @@ namespace DefaultNamespace
                 {
                     OnDie?.Invoke();
                 }
-                Debug.Log(hp);
+                // Debug.Log(hp);
             }
         }
 
