@@ -336,7 +336,7 @@ MonoBehaviour:
   version: 4
   autoRepath:
     mode: 1
-    interval: 0.1
+    interval: 1
     sensitivity: 10
     maximumInterval: 2
     visualizeSensitivity: 0
@@ -398,9 +398,8 @@ MonoBehaviour:
   damage: 3
   visionDetector: {fileID: 3494855142670306467}
   attackDetector: {fileID: 129866714050097660}
-  speed: 2
   attackSpeed: 1
-  projectilePrefab: {fileID: 4083980763915110323, guid: e65498ce4fc151c4abb091f83afcbbf2, type: 3}
+  projectilePrefab: {fileID: 4083980763915110323, guid: f2241f668690e49429a000ca6a933a33, type: 3}
   projectileSpeed: 1
 --- !u!58 &8174150068110752440
 CircleCollider2D:

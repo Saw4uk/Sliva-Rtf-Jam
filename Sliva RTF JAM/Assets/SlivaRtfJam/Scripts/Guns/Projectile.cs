@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using UnityEngine;
 
 namespace SlivaRtfJam.Scripts.Guns
@@ -6,6 +7,7 @@ namespace SlivaRtfJam.Scripts.Guns
     {
         [SerializeField] private float liveTime = 5;
         private float damage;
+        private Beat beatType;
         [SerializeField] private SpriteRenderer spriteRenderer;
 
         private new Rigidbody2D rigidbody;
@@ -17,8 +19,9 @@ namespace SlivaRtfJam.Scripts.Guns
             needImmediateDestroy = GetComponent<TrailRenderer>() == null;
         }
 
-        public void LaunchProjectile(Vector3 direction, float speed, float damage)
+        public void LaunchProjectile(Vector3 direction, float speed, float damage, Beat beatType = Beat.Enemy)
         {
+            this.beatType = beatType;
             this.damage = damage;
             rigidbody.AddForce(direction * speed, ForceMode2D.Impulse);
             Destroy(gameObject, liveTime);
@@ -26,21 +29,35 @@ namespace SlivaRtfJam.Scripts.Guns
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-
+            if (other.CompareTag("Player") && beatType is Beat.Player or Beat.Both ||
+                other.CompareTag("Enemy") && beatType is Beat.Enemy or Beat.Both)
+            {
+                other.GetComponent<Healthable>().TakeDamage(damage);
+                HideObj();
+            }
         }
 
         private void HideObj()
         {
+            Debug.Log("1");
             if (needImmediateDestroy)
             {
+                Debug.Log("2");
                 Destroy(gameObject);
             }
             else
             {
+                Debug.Log("3");
                 rigidbody.isKinematic = true;
                 rigidbody.velocity = Vector2.zero;
                 spriteRenderer.gameObject.SetActive(false);
             }
         }
+    }
+    public enum Beat
+    {
+        Player,
+        Enemy,
+        Both
     }
 }

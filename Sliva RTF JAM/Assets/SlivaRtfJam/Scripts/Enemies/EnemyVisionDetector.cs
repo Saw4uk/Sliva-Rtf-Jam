@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace DefaultNamespace
             }
 
             targets.Add(other.transform);
+            // StartCoroutine(ChangeTarget());
             var theClosestTarget = GetClosestTarget();
             OnTargetChanged?.Invoke(theClosestTarget);
         }
@@ -35,20 +37,35 @@ namespace DefaultNamespace
             }
 
             targets.Remove(other.transform);
-            if (other.transform == enemy.CurrentTarget)
-            {
-                var theClosestTarget = GetClosestTarget();
-                OnTargetChanged?.Invoke(theClosestTarget);
-            }
+            // if (other.transform == enemy.CurrentTarget)
+            // {
+            //     // StartCoroutine(ChangeTarget());
+            //     var theClosestTarget = GetClosestTarget();
+            //     if (enemy.CurrentState is Enemy.State.Attack)
+            //     {
+            //         
+            //     }
+            //     else
+            //     {
+            //         OnTargetChanged?.Invoke(theClosestTarget);
+            //     }
+            //
+            //     
+            // }
+            enemy.MoveTargetDisapeared();
         }
 
-        private Transform GetClosestTarget()
+        public Transform GetClosestTarget()
         {
-            var a =targets.Concat(new List<Transform> { enemy.DefaultTarget })
-                .OrderBy(target => Vector2.Distance(target.transform.position, transform.position)).First();
-            Debug.Log(a);
             return targets.Concat(new List<Transform> { enemy.DefaultTarget })
                 .OrderBy(target => Vector2.Distance(target.transform.position, transform.position)).First();
+        }
+
+        private IEnumerator ChangeTarget()
+        {
+            yield return new WaitForSeconds(1);
+            var theClosestTarget = GetClosestTarget();
+            OnTargetChanged?.Invoke(theClosestTarget);
         }
     }
 }
