@@ -17519,6 +17519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ui
       objectReference: {fileID: 0}
+    - target: {fileID: 8962199389100979843, guid: 2296b1def515bb64ba55b6fefc19c18c, type: 3}
+      propertyPath: soldierShooting
+      value: 
+      objectReference: {fileID: 208683655}
     - target: {fileID: 9091086657515434618, guid: 2296b1def515bb64ba55b6fefc19c18c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
