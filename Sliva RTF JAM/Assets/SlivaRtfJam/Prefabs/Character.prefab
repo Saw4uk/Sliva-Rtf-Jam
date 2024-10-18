@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunRotator: {fileID: 9026895321943108816}
-  chosedGun: {fileID: 0}
+  chosedGun: {fileID: 3205209080397058210}
   guns:
     _serializedList:
     - Key: 0
@@ -604,7 +604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2640585858994116970, guid: 24723a5a7a37d4840a294350a1723094, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5006833983134964474, guid: 24723a5a7a37d4840a294350a1723094, type: 3}
       propertyPath: m_LocalPosition.x
@@ -681,7 +681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 178151809746504536, guid: c9f4c093fc2892046814c30c5b6687d7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7180437665271384264, guid: c9f4c093fc2892046814c30c5b6687d7, type: 3}
       propertyPath: m_LocalPosition.x

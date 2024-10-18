@@ -4,27 +4,30 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using Pathfinding;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float damage;
+    [SerializeField] protected float damage;
     [SerializeField] private EnemyVisionDetector visionDetector;
     [SerializeField] private EnemyAttackDetector attackDetector;
     private Transform defaultTarget;
     private Transform currentTarget;
+    public Transform DefaultTarget => defaultTarget;
     public Transform CurrentTarget => currentTarget;
     private State state = State.Move;
-    [SerializeField] private float speed;
-    [SerializeField] private float timeToAttackMax = 1;
-    private float timeToAttack;
+    [SerializeField] protected float attackSpeed = 1;
+    protected float timeToAttack;
+    private Healthable _healthable;
 
     void Start()
     {
-        ChangeToMove();
-        visionDetector.OnEnemyDetected.AddListener(ChangeTarget);
-        visionDetector.OnEnemyDisapeared.AddListener(ChangeTargetToDefault);
+        _healthable = GetComponent<Healthable>();
+        _healthable.OnDie.AddListener(() => Destroy(gameObject));
+        visionDetector.OnTargetChanged.AddListener(ChangeTarget);
         attackDetector.OnEnemyDetected.AddListener(ChangeToAttack);
         attackDetector.OnEnemyDisapeared.AddListener(ChangeToMove);
+        ChangeToMove();
     }
 
     // Update is called once per frame
@@ -56,26 +59,27 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Attack()
+    protected virtual void Attack()
     {
-        Debug.Log("Attack");
-        currentTarget.GetComponent<CanBeDamaged>().TakeDamage(damage);
-        timeToAttack = timeToAttackMax;
+        DealDamage(currentTarget.GetComponent<Healthable>());
+        timeToAttack = attackSpeed;
     }
 
     public void ChangeToAttack()
     {
         ChangeState(State.Attack);
-        GetComponent<AILerp>().speed = 0;
+        // GetComponent<AILerp>().speed = 0;
+        GetComponent<AILerp>().canMove = false;
     }
 
     public void ChangeToMove()
     {
         ChangeState(State.Move);
-        GetComponent<AILerp>().speed = speed;
+        // GetComponent<AILerp>().speed = speed;
+        GetComponent<AILerp>().canMove = true;
     }
 
-    public void DealDamage(CanBeDamaged target)
+    public void DealDamage(Healthable target)
     {
         target.TakeDamage(damage);
     }
@@ -86,11 +90,11 @@ public class Enemy : MonoBehaviour
         currentTarget = newTarget;
     }
 
-    public void ChangeTargetToDefault()
-    {
-        GetComponent<AIDestinationSetter>().target = defaultTarget;
-        currentTarget = defaultTarget;
-    }
+    // public void ChangeTargetToDefault()
+    // {
+    //     GetComponent<AIDestinationSetter>().target = defaultTarget;
+    //     currentTarget = defaultTarget;
+    // }
 
     public void SetDefaultTarget(Transform newTarget)
     {
