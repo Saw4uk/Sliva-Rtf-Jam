@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
 
     private Vector2 direction;
-    
-    public event Action onUseShop;
+
+    public event Action<GameObject> OnUseShop;
 
     private void Update()
     {
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            onUseShop?.Invoke();
+            OnUseShop?.Invoke(gameObject);
         }
     }
 }

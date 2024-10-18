@@ -15,7 +15,11 @@ namespace SlivaRtfJam.Scripts.Model
         public int Money
         {
             get => money;
-            set => money = value;
+            set
+            {
+                money = value;
+                moneyChanged.Invoke(money);
+            }
         }
 
         public UnityEvent<int> moneyChanged;
@@ -28,6 +32,8 @@ namespace SlivaRtfJam.Scripts.Model
             {
                 throw new Exception("Singleton two");
             }
+
+            Money = 50;
         }
     }
 }

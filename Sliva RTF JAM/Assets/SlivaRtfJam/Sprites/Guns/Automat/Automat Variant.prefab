@@ -137,6 +137,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Automat Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5108256494805760315, guid: 539ad27a7cad6294b958adcd1d3748f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0393
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664393607381674757, guid: 539ad27a7cad6294b958adcd1d3748f1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.051
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664393607381674757, guid: 539ad27a7cad6294b958adcd1d3748f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0098
+      objectReference: {fileID: 0}
     - target: {fileID: 7117195172760361052, guid: 539ad27a7cad6294b958adcd1d3748f1, type: 3}
       propertyPath: m_Controller
       value: 
@@ -177,10 +189,18 @@ PrefabInstance:
       propertyPath: bulletDegreeRandomDegrees
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8661306019393284867, guid: 539ad27a7cad6294b958adcd1d3748f1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1374
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661306019393284867, guid: 539ad27a7cad6294b958adcd1d3748f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0098
+      objectReference: {fileID: 0}
     - target: {fileID: 9157283897245104875, guid: 539ad27a7cad6294b958adcd1d3748f1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1490989284, guid: 8ffdfd3fff8e213439725ca6a460e16d, type: 3}
+      objectReference: {fileID: 21300000, guid: dab687ea4f219e74ea9b0f7385e7f425, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

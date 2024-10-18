@@ -39,6 +39,7 @@ namespace SlivaRtfJam.Scripts.Guns
         protected float remainingShootingDelay;
         protected int currentAmmoInMag;
         protected int currentAmmoTotal;
+        protected int magUpgradesAmount = 2;
 
         
         public UnityEvent<int> ammoChanged;
@@ -77,39 +78,54 @@ namespace SlivaRtfJam.Scripts.Guns
         {
             remainingShootingDelay = 0;
             CurrentAmmo = maxAmmo;
+            CurrentAmmoTotal = CurrentAmmo * magUpgradesAmount;
         }
 
-        private void FixedUpdate()
+        protected virtual void Update()
         {
-            remainingShootingDelay -= Time.fixedDeltaTime;
+            if (remainingShootingDelay >= 0)
+            {
+                remainingShootingDelay -= Time.deltaTime;
+            }
         }
 
         public virtual void OnShoot(InputAction.CallbackContext context)
         {
-            if(!isActiveAndEnabled) return;
+            if(!isActiveAndEnabled)
+            {
+                return;
+            }
+
             isShooting = context.performed;
             if (isShooting && remainingShootingDelay <= 0 && currentAmmoInMag > 0)
             {
-                
-                var gunTransform = transform;
-                var rads = (gunTransform.rotation.eulerAngles.z + Random.Range(-bulletDegreeRandomDegrees, + bulletDegreeRandomDegrees)) * Mathf.Deg2Rad;
-                var direction = new Vector3(Mathf.Cos(rads), Mathf.Sin(rads), 0);
-                Shoot(direction, barrel.position);
-                shootAnimator.Animate(remainingShootingDelay);
-                gunAnimator.SetTrigger("Shoot");
+                MakeShoot();
             }
+        }
+
+        protected virtual void MakeShoot()
+        {
+            var gunTransform = transform;
+            var rads = (gunTransform.rotation.eulerAngles.z + Random.Range(-bulletDegreeRandomDegrees, + bulletDegreeRandomDegrees)) * Mathf.Deg2Rad;
+            var direction = new Vector3(Mathf.Cos(rads), Mathf.Sin(rads), 0);
+            Shoot(direction, barrel.position);
+            remainingShootingDelay = shootingDelay;
+            shootAnimator.Animate(remainingShootingDelay);
+            gunAnimator.SetTrigger("Shoot");
         }
         
 
         protected virtual void Shoot(Vector2 direction, Vector3 shootPosition)
         {
-            if(!isActiveAndEnabled) return;
-            
+            if(!isActiveAndEnabled)
+            {
+                return;
+            }
+
             var bullet = Instantiate(projectilePrefab, shootPosition, transform.rotation);
             bullet.LaunchProjectile(direction, projectileSpeed,Random.Range(bulletDamageStart,bulletDamageEnd));
 
             CurrentAmmo -= 1;
-            remainingShootingDelay = shootingDelay;
 
             //gunAnimator.SetTrigger("Fire");
             //audioSource.PlayOneShot(shootSound);
@@ -123,7 +139,10 @@ namespace SlivaRtfJam.Scripts.Guns
         public IEnumerator Reload()
         {
             if (!isActiveAndEnabled || CurrentAmmoTotal == 0)
+            {
                 yield break;
+            }
+
             yield return new WaitForSeconds(reloadSpeedInSeconds);
             var ammo = Math.Min(MaxAmmo, CurrentAmmoTotal);
             CurrentAmmoTotal -= ammo;
