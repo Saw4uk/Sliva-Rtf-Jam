@@ -17,7 +17,7 @@ public class RangedEnemy : Enemy
         var direction = CurrentTarget.position - transform.position;
         var projectile = Instantiate(projectilePrefab, transform.position,
             Quaternion.Euler(direction));
-        projectile.LaunchProjectile(direction, projectileSpeed, damage);
+        projectile.LaunchProjectile(direction, projectileSpeed, damage, Beat.Player);
         timeToAttack = attackSpeed;
     }
 }

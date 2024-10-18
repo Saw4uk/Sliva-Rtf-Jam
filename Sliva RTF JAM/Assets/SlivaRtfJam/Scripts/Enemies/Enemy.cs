@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public Transform DefaultTarget => defaultTarget;
     public Transform CurrentTarget => currentTarget;
     private State state = State.Move;
+    public State CurrentState => state;
     [SerializeField] protected float attackSpeed = 1;
     protected float timeToAttack;
     private Healthable _healthable;
@@ -79,6 +80,15 @@ public class Enemy : MonoBehaviour
         GetComponent<AILerp>().canMove = true;
     }
 
+    public void ChangeToMoveToDefault()
+    {
+        ChangeTarget(defaultTarget);
+        ChangeToMove();
+        // ChangeState(State.Move);
+        // // GetComponent<AILerp>().speed = speed;
+        // GetComponent<AILerp>().canMove = true;
+    }
+
     public void DealDamage(Healthable target)
     {
         target.TakeDamage(damage);
@@ -106,9 +116,81 @@ public class Enemy : MonoBehaviour
         state = newState;
     }
 
-    private enum State
+    public enum State
     {
         Move,
+        Search,
         Attack
+    }
+
+    public void AttackTargetDisapeared()
+    {
+        var attackTarget = attackDetector.GetClosestTarget();
+        var moveTarget = visionDetector.GetClosestTarget();
+        if (state is State.Attack)
+        {
+            if (attackTarget is not null)
+            {
+                ChangeTarget(attackTarget);
+            }
+            else
+            {
+                ChangeTarget(moveTarget);
+                ChangeToMove();
+            }
+        }
+        //
+        // if (state is State.Move)
+        // {
+        //     if (moveTarget != currentTarget)
+        //     {
+        //         return;
+        //     }
+        //     if (attackTarget is not null)
+        //     {
+        //         ChangeTarget(attackTarget);
+        //     }
+        //     else
+        //     {
+        //         ChangeTarget(moveTarget);
+        //     }
+        // }
+    }
+    public void MoveTargetDisapeared()
+    {
+        var attackTarget = attackDetector.GetClosestTarget();
+        var moveTarget = visionDetector.GetClosestTarget();
+        if (state is State.Attack)
+        {
+            if (attackTarget is not null)
+            {
+            }
+            else
+            {
+                ChangeTarget(moveTarget);
+                ChangeToMove();
+            }
+        }
+
+        else if (state is State.Move)
+        {
+            if (moveTarget != defaultTarget)
+            {
+                ChangeTarget(moveTarget);
+            }
+            else
+            {
+                if (attackTarget is not null)
+                {
+                    ChangeTarget(attackTarget);
+                    ChangeToAttack();
+                }
+
+                {
+                    ChangeTarget(defaultTarget);
+                    ChangeToMove();
+                }
+            }
+        }
     }
 }
