@@ -186,7 +186,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5403417522251740101
@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 5484094387059971616}
   - component: {fileID: 8950429319255475451}
   - component: {fileID: 2332912120511300274}
+  - component: {fileID: 4221995217297668688}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -545,6 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69332773990b4fd8870fcc4fbfed175e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
   gunRotator: {fileID: 9026895321943108816}
   chosedGun: {fileID: 3205209080397058210}
   guns:
@@ -675,6 +677,22 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4221995217297668688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801283689303184944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2d0bae1d124ef38773f1f0f4d95295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterAnimator: {fileID: 6305060194093926314}
+  isSoldier: 1
+  healDelaySeconds: 2
+  healHP: 20
 --- !u!1001 &4171330075360510750
 PrefabInstance:
   m_ObjectHideFlags: 0

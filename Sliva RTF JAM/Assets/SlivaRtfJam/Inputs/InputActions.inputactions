@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Heal",
+                    "type": "Button",
+                    "id": "21553005-14a5-490a-914b-60ee2d65656d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -230,6 +239,17 @@
                     "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e82bf660-f8b9-4b8c-9379-b7faf078c1fb",
+                    "path": "<Keyboard>/#(\\)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Heal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -250,6 +270,15 @@
                     "name": "UseShop",
                     "type": "Button",
                     "id": "8290b603-6b87-4d62-b7ac-bfbfb278bcad",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Heal",
+                    "type": "Button",
+                    "id": "600a6e33-547b-4be9-bd5e-ca90434da189",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -315,11 +344,22 @@
                 {
                     "name": "",
                     "id": "1c546b30-d4aa-4b8e-b6d6-04404626de81",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/#(E)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "UseShop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c2bf072-8a5b-479a-8849-b0ee8e67dc7f",
+                    "path": "<Keyboard>/#(Q)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Heal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
