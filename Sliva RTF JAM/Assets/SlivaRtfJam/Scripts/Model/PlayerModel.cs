@@ -41,7 +41,7 @@ namespace SlivaRtfJam.Scripts.Model
 
         public void Heal()
         {
-            if(!isHealing)
+            if(!isHealing && healsAmount > 0)
                 StartCoroutine(HealEnumerator());
         }
 
