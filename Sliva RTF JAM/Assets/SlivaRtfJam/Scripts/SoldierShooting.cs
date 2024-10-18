@@ -26,8 +26,11 @@ public class SoldierShooting : MonoBehaviour
             if(chosedGun != null)
                 chosedGun.ammoChanged.RemoveListener(OnChosedGunAmmoChanged);
             chosedGun = value;
-            if(chosedGun != null)
+            if (chosedGun != null)
+            {
                 chosedGun.ammoChanged.AddListener(OnChosedGunAmmoChanged);
+                AmmoChanged.Invoke(chosedGun.CurrentAmmo, chosedGun.CurrentAmmoTotal);
+            }
         }
     }   
 
@@ -45,7 +48,7 @@ public class SoldierShooting : MonoBehaviour
         camera = Camera.main;
         availableGuns = new List<GunType>();
         availableGuns.Add(GunType.Pistol);
-        ChoseGun(GunType.Pistol);
+        ChosedGun = guns[GunType.Pistol];
     }
 
     public void OnShoot(InputAction.CallbackContext context)

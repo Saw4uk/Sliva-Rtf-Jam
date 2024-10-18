@@ -39,6 +39,7 @@ namespace SlivaRtfJam.Scripts.Guns
         protected float remainingShootingDelay;
         protected int currentAmmoInMag;
         protected int currentAmmoTotal;
+        protected int magUpgradesAmount = 2;
 
         
         public UnityEvent<int> ammoChanged;
@@ -77,6 +78,7 @@ namespace SlivaRtfJam.Scripts.Guns
         {
             remainingShootingDelay = 0;
             CurrentAmmo = maxAmmo;
+            CurrentAmmoTotal = CurrentAmmo * magUpgradesAmount;
         }
 
         protected virtual void Update()
