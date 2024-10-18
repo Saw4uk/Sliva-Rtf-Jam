@@ -20,15 +20,32 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float attackSpeed = 1;
     protected float timeToAttack;
     private Healthable _healthable;
+    private Animator animator;
+    private AILerp aiLerp;
 
     void Start()
     {
+        aiLerp = GetComponent<AILerp>();
+        animator = GetComponent<Animator>();
         _healthable = GetComponent<Healthable>();
-        _healthable.OnDie.AddListener(() => Destroy(gameObject));
+        _healthable.OnDie.AddListener(Die);
         visionDetector.OnTargetChanged.AddListener(ChangeTarget);
         attackDetector.OnEnemyDetected.AddListener(ChangeToAttack);
         attackDetector.OnEnemyDisapeared.AddListener(ChangeToMove);
         ChangeToMove();
+    }
+
+    private void Die()
+    {
+        animator.SetTrigger("Die");
+        aiLerp.canMove = false;
+        StartCoroutine(DestroySelf());
+    }
+
+    private IEnumerator DestroySelf()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
@@ -71,6 +88,8 @@ public class Enemy : MonoBehaviour
         ChangeState(State.Attack);
         // GetComponent<AILerp>().speed = 0;
         GetComponent<AILerp>().canMove = false;
+        animator.SetTrigger("Attack");
+        Debug.Log("SET Attack");
     }
 
     public void ChangeToMove()
@@ -78,6 +97,8 @@ public class Enemy : MonoBehaviour
         ChangeState(State.Move);
         // GetComponent<AILerp>().speed = speed;
         GetComponent<AILerp>().canMove = true;
+        animator.SetTrigger("Move");
+        Debug.Log("SET Move");
     }
 
     public void ChangeToMoveToDefault()
@@ -156,6 +177,7 @@ public class Enemy : MonoBehaviour
         //     }
         // }
     }
+
     public void MoveTargetDisapeared()
     {
         var attackTarget = attackDetector.GetClosestTarget();

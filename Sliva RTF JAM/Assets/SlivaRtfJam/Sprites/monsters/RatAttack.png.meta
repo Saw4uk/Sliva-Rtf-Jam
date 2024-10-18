@@ -1,0 +1,337 @@
+fileFormatVersion: 2
+guid: e453fd8b6dc4c9b45b56d84a78368132
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RatAttack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      physicsShape:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e9c86185367264a9c8d8b5a9122259
+      internalID: 950334672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatAttack_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 200
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      physicsShape:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8793ca492827f0841b81aa33c0822e3b
+      internalID: 485627019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatAttack_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 200
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      physicsShape:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c445693c5429e94a9ac52b6e198d081
+      internalID: 23477850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatAttack_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      physicsShape:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6684de3338d81240bb6a0973792903c
+      internalID: -1801011809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatAttack_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      physicsShape:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad98bc6adeb33b94fa0b61a6bfcd7b23
+      internalID: -276869929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatAttack_5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 200
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      physicsShape:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0cf42da65185534a89a07faeff2e6db
+      internalID: 1793088603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatAttack_6
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 200
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      physicsShape:
+      - - {x: 0, y: -64}
+        - {x: 100, y: 0}
+        - {x: 0, y: 64}
+        - {x: -100, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f47e854e7e3b1441af049145a167de1
+      internalID: 470712491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      RatAttack_0: 950334672
+      RatAttack_1: 485627019
+      RatAttack_2: 23477850
+      RatAttack_3: -1801011809
+      RatAttack_4: -276869929
+      RatAttack_5: 1793088603
+      RatAttack_6: 470712491
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
