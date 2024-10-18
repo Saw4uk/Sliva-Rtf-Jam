@@ -17844,10 +17844,6 @@ PrefabInstance:
       propertyPath: constructionTilemap
       value: 
       objectReference: {fileID: 1729989991}
-    - target: {fileID: 6757613607443029029, guid: 84c1293af0a00464880190f149339120, type: 3}
-      propertyPath: isSoldier
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
