@@ -13,6 +13,7 @@ public class GunPanel : MonoBehaviour
     private void Awake()
     {
         soldierShooting.GunParametersChanged.AddListener(ReDraw);
+        ReDraw();
     }
 
     private void ReDraw()

@@ -45,9 +45,6 @@ public class SoldierShooting : MonoBehaviour
         camera = Camera.main;
         availableGuns = new List<GunType>();
         availableGuns.Add(GunType.Pistol);
-        availableGuns.Add(GunType.Shotgun);
-        availableGuns.Add(GunType.Rifle);
-        availableGuns.Add(GunType.Automat);
         ChoseGun(GunType.Pistol);
     }
 

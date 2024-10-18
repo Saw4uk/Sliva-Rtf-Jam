@@ -83,11 +83,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2637792757153526605, guid: 539ad27a7cad6294b958adcd1d3748f1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2637792757153526605, guid: 539ad27a7cad6294b958adcd1d3748f1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2637792757153526605, guid: 539ad27a7cad6294b958adcd1d3748f1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -145,6 +145,10 @@ PrefabInstance:
       propertyPath: shootAnimator
       value: 
       objectReference: {fileID: 2452899070454804316}
+    - target: {fileID: 9157283897245104875, guid: 539ad27a7cad6294b958adcd1d3748f1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4e16c84d0641a5b4a8151c89394fa5a8, type: 3}
     m_RemovedComponents:
     - {fileID: 8576575848903161356, guid: 539ad27a7cad6294b958adcd1d3748f1, type: 3}
     m_RemovedGameObjects: []
@@ -186,9 +190,6 @@ MonoBehaviour:
   maxAmmo: 6
   reloadSpeedInSeconds: 3
   ammoChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  maxAmmoChanged:
     m_PersistentCalls:
       m_Calls: []
   startReloading:

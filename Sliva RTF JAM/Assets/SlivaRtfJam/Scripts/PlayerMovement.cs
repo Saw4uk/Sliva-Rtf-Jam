@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 direction;
 
-    public event Action OnUseShop;
+    public event Action<GameObject> OnUseShop;
 
     private void Update()
     {
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            OnUseShop?.Invoke();
+            OnUseShop?.Invoke(gameObject);
         }
     }
 }

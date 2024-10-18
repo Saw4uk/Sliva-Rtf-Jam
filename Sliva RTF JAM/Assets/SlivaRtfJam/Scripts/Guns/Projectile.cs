@@ -11,6 +11,9 @@ namespace SlivaRtfJam.Scripts.Guns
         private new Rigidbody2D rigidbody;
         private bool isHit = false;
         private bool needImmediateDestroy;
+
+        public float Damage => damage;
+
         private void Awake()
         {
             rigidbody = GetComponent<Rigidbody2D>();
