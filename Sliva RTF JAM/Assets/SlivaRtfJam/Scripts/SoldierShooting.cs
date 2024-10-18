@@ -5,10 +5,11 @@ using SlivaRtfJam.Scripts.Guns;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class SoldierShooting : MonoBehaviour
 {
+    [SerializeField] private Camera camera;
+    
     [Header("Gun Settings")]
     [SerializeField] private Transform gunRotator;
     [SerializeField] private Gun chosedGun;
@@ -52,7 +53,6 @@ public class SoldierShooting : MonoBehaviour
 
     private void Awake()
     {
-        camera = Camera.main;
         availableGuns = new List<GunType>();
         availableGuns.Add(GunType.Pistol);
         ChosedGun = guns[GunType.Pistol];
