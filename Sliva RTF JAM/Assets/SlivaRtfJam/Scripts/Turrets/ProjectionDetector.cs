@@ -14,7 +14,7 @@ namespace DefaultNamespace
         {
             if (other.TryGetComponent(out GlitchedEnemy glitchedEnemy))
             {
-                Debug.Log("Entered");
+                Debug.Log("Entered" + glitchedEnemy.name);
 
                 glitchedEnemy.TurnIntoSomething();
             }
@@ -25,8 +25,8 @@ namespace DefaultNamespace
         {
             if (other.TryGetComponent(out Enemy enemy))
             {
-                Debug.Log("Exit");
-                enemy.TurnIntoGlitch();
+                Debug.Log("Exit" + enemy.name);
+                StartCoroutine(enemy.TurnIntoGlitch());
             }
 
             // other.HideSelf

@@ -10,7 +10,6 @@ public class Coin : MonoBehaviour
     public int PickUp()
     {
         Destroy(gameObject);
-        Debug.Log("Picked up " + value);
         return value;
     }
 }
