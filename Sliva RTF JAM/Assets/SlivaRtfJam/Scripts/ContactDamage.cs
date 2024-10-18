@@ -8,14 +8,14 @@ public class ContactDamage : MonoBehaviour
 {
     [SerializeField] private Beat beat;
     [SerializeField] private bool canGoThrowTarget;
-    [SerializeField] private float damage;
+    // [SerializeField] private float damage;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && beat is Beat.Player or Beat.Both ||
             other.CompareTag("Enemy") && beat is Beat.Enemy or Beat.Both)
         {
-            other.GetComponent<Healthable>().TakeDamage(damage);
+            // other.GetComponent<Healthable>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }

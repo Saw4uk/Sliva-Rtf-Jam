@@ -336,7 +336,7 @@ MonoBehaviour:
   version: 4
   autoRepath:
     mode: 1
-    interval: 0.1
+    interval: 1
     sensitivity: 10
     maximumInterval: 2
     visualizeSensitivity: 0
@@ -379,7 +379,6 @@ MonoBehaviour:
   damage: 5
   visionDetector: {fileID: 3494855142670306467}
   attackDetector: {fileID: 129866714050097660}
-  speed: 6
   attackSpeed: 1
 --- !u!114 &5592367753022643580
 MonoBehaviour:
