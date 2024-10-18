@@ -111,7 +111,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.0057, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 5}
+  m_LocalScale: {x: 2, y: 2, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2073015428867075447}
@@ -136,7 +136,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -184,6 +184,8 @@ GameObject:
   - component: {fileID: 6805028242816076002}
   - component: {fileID: 8174150068110752440}
   - component: {fileID: 4368907344512418868}
+  - component: {fileID: 7257433497339654104}
+  - component: {fileID: 2477843953716934449}
   m_Layer: 0
   m_Name: Bug
   m_TagString: Enemy
@@ -207,6 +209,7 @@ Transform:
   - {fileID: 1280362559290423549}
   - {fileID: 3961672356697245228}
   - {fileID: 9035622909907474024}
+  - {fileID: 9158329279898742157}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5299464924714790136
@@ -279,7 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 0}
+  target: {fileID: 2073015428867075447, guid: 8f10e19073a66894788393741963a411, type: 3}
 --- !u!114 &5592367753022643580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,8 +318,10 @@ MonoBehaviour:
   visionDetector: {fileID: 3494855142670306467}
   attackDetector: {fileID: 129866714050097660}
   attackSpeed: 1
+  glitchedPrefab: {fileID: 2073015428867075447, guid: 8f10e19073a66894788393741963a411, type: 3}
   projectilePrefab: {fileID: 4083980763915110323, guid: f2241f668690e49429a000ca6a933a33, type: 3}
   projectileSpeed: 1
+  pointToSpawnProjectile: {fileID: 9158329279898742157}
 --- !u!58 &8174150068110752440
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -373,6 +378,46 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &7257433497339654104
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327354892205998437}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &2477843953716934449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327354892205998437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3f18a09632e2842aa715acbc56a162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: {fileID: 2734842478682549747, guid: f777736a2d9ff524c9def8db7ec7738e, type: 3}
 --- !u!1 &4980367949581022163
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,3 +506,34 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Targets: []
+--- !u!1 &5813347497482977705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9158329279898742157}
+  m_Layer: 0
+  m_Name: PontToSpawnProjectile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9158329279898742157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813347497482977705}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.881, y: -0.217, z: 0.028053965}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2073015428867075447}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
