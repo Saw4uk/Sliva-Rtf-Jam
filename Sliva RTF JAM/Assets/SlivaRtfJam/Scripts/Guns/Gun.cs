@@ -36,15 +36,14 @@ namespace SlivaRtfJam.Scripts.Guns
 
 
         protected bool isShooting;
-        private bool isReloading;
         protected float remainingShootingDelay;
         protected int currentAmmoInMag;
         protected int currentAmmoTotal;
         protected int magUpgradesAmount = 2;
 
-
+        
         public UnityEvent<int> ammoChanged;
-        public UnityEvent endReloading;
+        public UnityEvent startReloading;
 
         public int CurrentAmmo
         {
@@ -59,11 +58,7 @@ namespace SlivaRtfJam.Scripts.Guns
         public int CurrentAmmoTotal
         {
             get => currentAmmoTotal;
-            set
-            {
-                currentAmmoTotal = value;
-                ammoChanged.Invoke(currentAmmoInMag);
-            }
+            set => currentAmmoTotal = value;
         }
 
         public int MaxAmmo
@@ -78,7 +73,6 @@ namespace SlivaRtfJam.Scripts.Guns
 
         public bool IsFullAmmo => CurrentAmmo == maxAmmo;
 
-        public bool IsReloading => isReloading;
 
         private void Awake()
         {
@@ -103,7 +97,7 @@ namespace SlivaRtfJam.Scripts.Guns
             }
 
             isShooting = context.performed;
-            if (isShooting && remainingShootingDelay <= 0 && currentAmmoInMag > 0 && !IsReloading)
+            if (isShooting && remainingShootingDelay <= 0 && currentAmmoInMag > 0)
             {
                 MakeShoot();
             }
@@ -111,7 +105,6 @@ namespace SlivaRtfJam.Scripts.Guns
 
         protected virtual void MakeShoot()
         {
-            if(IsReloading) return;
             var gunTransform = transform;
             var rads = (gunTransform.rotation.eulerAngles.z + Random.Range(-bulletDegreeRandomDegrees, + bulletDegreeRandomDegrees)) * Mathf.Deg2Rad;
             var direction = new Vector3(Mathf.Cos(rads), Mathf.Sin(rads), 0);
@@ -124,7 +117,7 @@ namespace SlivaRtfJam.Scripts.Guns
 
         protected virtual void Shoot(Vector2 direction, Vector3 shootPosition)
         {
-            if(!isActiveAndEnabled || IsReloading)
+            if(!isActiveAndEnabled)
             {
                 return;
             }
@@ -149,16 +142,11 @@ namespace SlivaRtfJam.Scripts.Guns
             {
                 yield break;
             }
-            isReloading = true;
-            gunAnimator.SetTrigger("Reload");
+
             yield return new WaitForSeconds(reloadSpeedInSeconds);
-            CurrentAmmoTotal += currentAmmoInMag;
-            currentAmmoInMag = 0;
             var ammo = Math.Min(MaxAmmo, CurrentAmmoTotal);
             CurrentAmmoTotal -= ammo;
             CurrentAmmo += ammo;
-            endReloading.Invoke();
-            isReloading = false;
         }
     }
 }

@@ -276,6 +276,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "BuildSearchlight",
+                    "type": "Button",
+                    "id": "2678308c-493c-421c-a54c-91e09fdae272",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Heal",
                     "type": "Button",
                     "id": "600a6e33-547b-4be9-bd5e-ca90434da189",
@@ -349,6 +358,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "UseShop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e081b97-9a94-4caf-8970-905a39b9e3f2",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BuildSearchlight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -1,5 +1,4 @@
 ﻿using System;
-using SlivaRtfJam.Scripts.Ui;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +7,6 @@ namespace DefaultNamespace
     public class Healthable : MonoBehaviour
     {
         [SerializeField] private float maxHp;
-        [SerializeField] private HpBar hpBar;
         private float hp;
         public UnityEvent<float, float> OnChangeHp;
         public UnityEvent OnDie;
@@ -19,14 +17,9 @@ namespace DefaultNamespace
             {
                 hp = Math.Min(value, maxHp);
                 OnChangeHp?.Invoke(hp, maxHp);
-
                 if (hp <= 0)
                 {
                     OnDie?.Invoke();
-                }
-                if (hpBar != null)
-                {
-                    hpBar.DrawProgress(hp/maxHp);
                 }
                 // Debug.Log(hp);
             }

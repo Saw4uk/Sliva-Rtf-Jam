@@ -16,7 +16,7 @@ namespace SlivaRtfJam.Scripts.Guns
             {
                 remainingShootingDelay -= Time.deltaTime;
             }
-            
+
             if (isShooting)
             {
                 if (remainingShootingDelay <= 0 && currentAmmoInMag > 0 && isAutomatigShooting)
@@ -28,13 +28,13 @@ namespace SlivaRtfJam.Scripts.Guns
 
         public override void OnShoot(InputAction.CallbackContext context)
         {
-            if(!isActiveAndEnabled)
+            if (!isActiveAndEnabled)
             {
                 return;
             }
 
             isShooting = context.performed;
-            
+
             if (isShooting && remainingShootingDelay <= 0 && currentAmmoInMag > 0 && !isAutomatigShooting)
             {
                 MakeShoot();

@@ -8,7 +8,6 @@ namespace SlivaRtfJam.Scripts.Shop
 {
     public class ShopTrigger : MonoBehaviour
     {
-        private int playersInZone;
         public UnityEvent<GameObject> showOnBuy;
         public UnityEvent<GameObject> hideOnBuy;
         public event Action<GameObject> UseShopEvent; 
@@ -19,7 +18,6 @@ namespace SlivaRtfJam.Scripts.Shop
             {
                 other.GetComponent<PlayerMovement>().OnUseShop += UseShop;
                 showOnBuy.Invoke(other.gameObject);
-                playersInZone++;
             }
         }
         
@@ -29,7 +27,6 @@ namespace SlivaRtfJam.Scripts.Shop
             {
                 other.GetComponent<PlayerMovement>().OnUseShop -= UseShop;
                 hideOnBuy.Invoke(other.gameObject);
-                playersInZone--;
             }
         }
 
