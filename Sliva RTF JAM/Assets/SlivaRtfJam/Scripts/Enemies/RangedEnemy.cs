@@ -11,13 +11,25 @@ public class RangedEnemy : Enemy
 {
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private float projectileSpeed;
+    [SerializeField] private Transform pointToSpawnProjectile;
 
     protected override void Attack()
     {
+        animator.SetTrigger("Attack");
+        // var direction = CurrentTarget.position - transform.position;
+        // var projectile = Instantiate(projectilePrefab, transform.position,
+        //     Quaternion.Euler(direction));
+        // projectile.LaunchProjectile(direction, projectileSpeed, damage, Beat.Player);
+        StartCoroutine(SpawnProjectile());
+        timeToAttack = attackSpeed;
+    }
+
+    private IEnumerator SpawnProjectile()
+    {
+        yield return new WaitForSeconds(0.5f);
         var direction = CurrentTarget.position - transform.position;
-        var projectile = Instantiate(projectilePrefab, transform.position,
+        var projectile = Instantiate(projectilePrefab, pointToSpawnProjectile.position,
             Quaternion.Euler(direction));
         projectile.LaunchProjectile(direction, projectileSpeed, damage, Beat.Player);
-        timeToAttack = attackSpeed;
     }
 }
