@@ -20,8 +20,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float attackSpeed = 1;
     protected float timeToAttack;
     private Healthable _healthable;
-    private Animator animator;
+    protected Animator animator;
     private AILerp aiLerp;
+    [SerializeField] private Transform glitchedPrefab;
 
     void Start()
     {
@@ -45,12 +46,26 @@ public class Enemy : MonoBehaviour
     private IEnumerator DestroySelf()
     {
         yield return new WaitForSeconds(1f);
+        GetComponent<CoinDropper>().DropCoin();
         Destroy(gameObject);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        var currentRotation = transform.rotation;
+        if (currentTarget.position.x < transform.position.x)
+        {
+            currentRotation.y = 180;
+        }
+        else
+        {
+            currentRotation.y = 0;
+        }
+
+        transform.rotation = currentRotation;
+
         bool canAttack = false;
         if (timeToAttack < 0)
         {
@@ -79,6 +94,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Attack()
     {
+        animator.SetTrigger("Attack");
         DealDamage(currentTarget.GetComponent<Healthable>());
         timeToAttack = attackSpeed;
     }
@@ -88,7 +104,7 @@ public class Enemy : MonoBehaviour
         ChangeState(State.Attack);
         // GetComponent<AILerp>().speed = 0;
         GetComponent<AILerp>().canMove = false;
-        animator.SetTrigger("Attack");
+        // animator.SetTrigger("Attack");
         Debug.Log("SET Attack");
     }
 
@@ -97,7 +113,7 @@ public class Enemy : MonoBehaviour
         ChangeState(State.Move);
         // GetComponent<AILerp>().speed = speed;
         GetComponent<AILerp>().canMove = true;
-        animator.SetTrigger("Move");
+        // animator.SetTrigger("Move");
         Debug.Log("SET Move");
     }
 
@@ -214,5 +230,14 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
+    }
+
+    public virtual void TurnIntoGlitch()
+    {
+        Debug.Log("TURNINTI");
+        Destroy(gameObject);
+        var glitch = Instantiate(glitchedPrefab, transform.position, transform.rotation);
+        glitch.GetComponent<GlitchedEnemy>().SetDefaultTarget(defaultTarget);
+        glitch.GetComponent<GlitchedEnemy>().ChangeTarget(currentTarget);
     }
 }

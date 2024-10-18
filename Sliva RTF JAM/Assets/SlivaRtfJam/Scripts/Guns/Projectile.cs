@@ -42,15 +42,12 @@ namespace SlivaRtfJam.Scripts.Guns
 
         private void HideObj()
         {
-            Debug.Log("1");
             if (needImmediateDestroy)
             {
-                Debug.Log("2");
                 Destroy(gameObject);
             }
             else
             {
-                Debug.Log("3");
                 rigidbody.isKinematic = true;
                 rigidbody.velocity = Vector2.zero;
                 spriteRenderer.gameObject.SetActive(false);
