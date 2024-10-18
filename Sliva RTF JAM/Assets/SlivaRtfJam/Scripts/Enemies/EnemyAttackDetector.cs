@@ -81,7 +81,7 @@ namespace DefaultNamespace
             {
                 return;
             }
-            Debug.Log("Exited");
+            // Debug.Log("Exited");
             Targets.Remove(other.transform);
             // if (other.transform == enemy.CurrentTarget)
             // {

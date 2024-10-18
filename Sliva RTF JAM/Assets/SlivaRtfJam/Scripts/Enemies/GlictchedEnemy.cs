@@ -22,8 +22,9 @@ public class GlitchedEnemy : RangedEnemy
         enemy.GetComponent<Enemy>().ChangeTarget(CurrentTarget);
     }
 
-    public override void TurnIntoGlitch()
+    public override IEnumerator TurnIntoGlitch()
     {
+        yield break;
     }
     // protected override void Attack()
     // {

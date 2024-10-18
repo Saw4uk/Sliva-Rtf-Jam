@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     protected Animator animator;
     private AILerp aiLerp;
     [SerializeField] private Transform glitchedPrefab;
+    private bool isDestroyingSelf;
 
     void Start()
     {
@@ -45,15 +46,20 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator DestroySelf()
     {
+        isDestroyingSelf = true;
         yield return new WaitForSeconds(1f);
         GetComponent<CoinDropper>().DropCoin();
         Destroy(gameObject);
-        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isDestroyingSelf)
+        {
+            return;
+        }
+
         var currentRotation = transform.rotation;
         if (currentTarget.position.x < transform.position.x)
         {
@@ -105,7 +111,6 @@ public class Enemy : MonoBehaviour
         // GetComponent<AILerp>().speed = 0;
         GetComponent<AILerp>().canMove = false;
         // animator.SetTrigger("Attack");
-        Debug.Log("SET Attack");
     }
 
     public void ChangeToMove()
@@ -232,9 +237,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void TurnIntoGlitch()
+    public virtual IEnumerator TurnIntoGlitch()
     {
-        Debug.Log("TURNINTI");
+        if (isDestroyingSelf)
+        {
+            yield break;;
+        }
+
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
         var glitch = Instantiate(glitchedPrefab, transform.position, transform.rotation);
         glitch.GetComponent<GlitchedEnemy>().SetDefaultTarget(defaultTarget);
