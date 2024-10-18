@@ -232,7 +232,7 @@
                 {
                     "name": "",
                     "id": "a6343117-02f1-4a99-9264-9f8f8dfb962e",
-                    "path": "<Keyboard>/#(])",
+                    "path": "<Keyboard>/rightBracket",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -364,7 +364,7 @@
                 {
                     "name": "",
                     "id": "6e081b97-9a94-4caf-8970-905a39b9e3f2",
-                    "path": "<Keyboard>/#(1)",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -375,7 +375,7 @@
                 {
                     "name": "",
                     "id": "7c2bf072-8a5b-479a-8849-b0ee8e67dc7f",
-                    "path": "<Keyboard>/#(Q)",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

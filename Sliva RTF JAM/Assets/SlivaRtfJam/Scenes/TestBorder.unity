@@ -17840,6 +17840,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Engineer
       objectReference: {fileID: 0}
+    - target: {fileID: 3580934495229714302, guid: 84c1293af0a00464880190f149339120, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580934495229714302, guid: 84c1293af0a00464880190f149339120, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580934495229714302, guid: 84c1293af0a00464880190f149339120, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 616547333}
+    - target: {fileID: 3580934495229714302, guid: 84c1293af0a00464880190f149339120, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580934495229714302, guid: 84c1293af0a00464880190f149339120, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSearchlightBuild
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580934495229714302, guid: 84c1293af0a00464880190f149339120, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EngineerBuildSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580934495229714302, guid: 84c1293af0a00464880190f149339120, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5211718538818971468, guid: 84c1293af0a00464880190f149339120, type: 3}
       propertyPath: constructionTilemap
       value: 
@@ -17849,6 +17877,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84c1293af0a00464880190f149339120, type: 3}
+--- !u!114 &616547333 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5211718538818971468, guid: 84c1293af0a00464880190f149339120, type: 3}
+  m_PrefabInstance: {fileID: 616547332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246562581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bacbc0199d6e46a98da803a9a66f45d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &667428494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28483,6 +28522,10 @@ PrefabInstance:
       propertyPath: costInMoney
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8762508653245186054, guid: 46a412d8954983a4a9205c27c2c711d2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1816810634, guid: a95fe40e47b117c41906eaa7aea382dc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
