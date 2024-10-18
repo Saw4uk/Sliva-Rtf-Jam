@@ -210,11 +210,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   borderTilemap: {fileID: 4141944882148156970}
   maskTilemap: {fileID: 8358490871755294540}
-  borderTile: {fileID: 11400000, guid: 49f08141db329e04a9621312e736b8be, type: 2}
+  borderTile: {fileID: 11400000, guid: 61718ecd61876e744bac68a78d1c1f3c, type: 2}
   size: {x: 32, y: 32}
   scale: 20
-  offset: {x: 0, y: 0}
   threshold: 0.5
+  offsetRange: {x: -100, y: 100}
 --- !u!1839735485 &4141944882148156970
 Tilemap:
   m_ObjectHideFlags: 0
