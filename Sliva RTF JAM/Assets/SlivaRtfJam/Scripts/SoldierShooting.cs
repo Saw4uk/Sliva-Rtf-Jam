@@ -76,7 +76,11 @@ public class SoldierShooting : MonoBehaviour
 
     public void ChoseGun(GunType gunType)
     {
-        if (!availableGuns.Contains(gunType) || choosenGunType == gunType) return;
+        if (!availableGuns.Contains(gunType) || choosenGunType == gunType)
+        {
+            return;
+        }
+
         chosedGun.gameObject.SetActive(false);
         ChosedGun = guns[gunType];
         choosenGunType = gunType;

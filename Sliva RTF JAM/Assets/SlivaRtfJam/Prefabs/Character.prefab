@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 8950429319255475451}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,7 +310,19 @@ MonoBehaviour:
     m_ActionId: cc0c0677-8e43-46dd-a784-cf8f1b46b379
     m_ActionName: Engineer/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4863131704938112375}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnShopUse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f66fa283-7a1c-4e2f-aef1-458f10a801b5
     m_ActionName: Soldier/UseShop[/Keyboard/rightShift]
   - m_PersistentCalls:
@@ -425,6 +437,9 @@ MonoBehaviour:
       Value: {fileID: 6138462542482560792}
     - Key: 3
       Value: {fileID: 5714901414464683302}
+  AmmoChanged:
+    m_PersistentCalls:
+      m_Calls: []
   GunParametersChanged:
     m_PersistentCalls:
       m_Calls: []

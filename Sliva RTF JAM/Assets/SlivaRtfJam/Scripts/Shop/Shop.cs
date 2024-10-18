@@ -15,7 +15,7 @@ namespace SlivaRtfJam.Scripts.Shop
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                other.GetComponent<PlayerMovement>().onUseShop += ShowShopWindow;
+                other.GetComponent<PlayerMovement>().OnUseShop += ShowShopWindow;
                 useText.gameObject.SetActive(true);
                 playersInZone++;
             }
@@ -25,7 +25,7 @@ namespace SlivaRtfJam.Scripts.Shop
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                other.GetComponent<PlayerMovement>().onUseShop -= ShowShopWindow;
+                other.GetComponent<PlayerMovement>().OnUseShop -= ShowShopWindow;
                 useText.gameObject.SetActive(false);
                 playersInZone--;
             }
