@@ -22,6 +22,8 @@ public class EnemyManager : MonoBehaviour
     private int currentWaveNumber;
     public UnityEvent OnWaveEnded;
     public UnityEvent OnWaveStarted;
+    public bool IsAllEnemiesSpawned;
+    public int EnemiesCount;
 
     private void Awake()
     {
@@ -35,7 +37,7 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnWaves());
+        StartCoroutine(SpawnWave(waves[0]));
     }
 
     private void SpawnEnemy(Enemy enemy)
@@ -44,33 +46,48 @@ public class EnemyManager : MonoBehaviour
         var enemyObject = Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         enemyObject.SetDefaultTarget(target);
         enemyObject.ChangeTarget(target);
+        EnemiesCount += 1;
         // enemyObject.ChangeTargetToDefault();
     }
 
-    private IEnumerator SpawnWaves()
+    // private IEnumerator SpawnWaves()
+    // {
+    //     // yield return new WaitForSeconds(10f);
+    //     foreach (var wave in waves)
+    //     {
+    //         IsAllEnemiesSpawned = false;
+    //         // if (currentWaveNumber == 0)
+    //         // {
+    //         //     yield return new WaitForSeconds(10f);
+    //         // }
+    //         currentWaveNumber++;
+    //         OnWaveStarted?.Invoke();
+    //         yield return StartCoroutine(SpawnWave(wave));
+    //         OnWaveEnded?.Invoke();
+    //         IsAllEnemiesSpawned = true;
+    //         yield return new WaitForSeconds(timeBetweenWaves);
+    //     }
+    // }
+
+    public IEnumerator SpawnNextWave()
     {
-        // yield return new WaitForSeconds(10f);
-        foreach (var wave in waves)
-        {
-            // if (currentWaveNumber == 0)
-            // {
-            //     yield return new WaitForSeconds(10f);
-            // }
-            currentWaveNumber++;
-            OnWaveStarted?.Invoke();
-            yield return StartCoroutine(SpawnWave(wave));
-            OnWaveEnded?.Invoke();
-            yield return new WaitForSeconds(timeBetweenWaves);
-        }
+        yield return new WaitForSeconds(timeBetweenWaves);
+        StartCoroutine(SpawnWave(waves[currentWaveNumber]));
     }
 
     private IEnumerator SpawnWave(Wave wave)
     {
+        IsAllEnemiesSpawned = false;
+        currentWaveNumber++;
+        OnWaveStarted?.Invoke();
         foreach (var smallWave in wave.SmallWaves)
         {
-            yield return StartCoroutine(SpawnSmallWave(smallWave));
             yield return new WaitForSeconds(wave.TimeBetween);
+            yield return StartCoroutine(SpawnSmallWave(smallWave));
         }
+
+        IsAllEnemiesSpawned = true;
+        // OnWaveEnded?.Invoke();
     }
 
     private IEnumerator SpawnSmallWave(SmallWave smallWave)
@@ -80,7 +97,10 @@ public class EnemyManager : MonoBehaviour
         {
             enemiesCount--;
             SpawnEnemy(enemyPrefab);
-            yield return new WaitForSeconds(smallWave.TimeBetween);
+            if (enemiesCount == 0)
+            {
+                yield return new WaitForSeconds(smallWave.TimeBetween);
+            }
         }
     }
 

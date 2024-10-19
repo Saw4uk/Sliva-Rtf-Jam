@@ -16,7 +16,18 @@ public class GameManager : MonoBehaviour
     {
         enemiesTargetHealth.OnDie.AddListener(GameOver);
         EnemyManager.Instance.OnWaveStarted.AddListener(StartWave);
-        EnemyManager.Instance.OnWaveEnded.AddListener(EndWave);
+        // EnemyManager.Instance.OnWaveEnded.AddListener(EndWave);
+        Enemy.OnAnyEnemyDied += OnAnyEnemyDied;
+
+        void OnAnyEnemyDied()
+        {
+            EnemyManager.Instance.EnemiesCount--;
+            if (EnemyManager.Instance.IsAllEnemiesSpawned && EnemyManager.Instance.EnemiesCount == 0)
+            {
+                EndWave();
+            }
+        }
+
         needScanNextFrame = 1;
         // astarPath.Scan();
     }
@@ -27,7 +38,7 @@ public class GameManager : MonoBehaviour
         if (needScanNextFrame > 0)
         {
             needScanNextFrame--;
-            
+
             // astarPath.Scan();
             // needScanNextFrame = false;
         }
@@ -52,6 +63,7 @@ public class GameManager : MonoBehaviour
 
         // astarPath.Scan();
         needScanNextFrame = 1;
+        StartCoroutine(EnemyManager.Instance.SpawnNextWave());
     }
 
     private void GameOver()
