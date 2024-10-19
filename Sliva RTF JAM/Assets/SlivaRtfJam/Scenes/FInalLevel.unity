@@ -12200,6 +12200,10 @@ PrefabInstance:
       propertyPath: HpBar
       value: 
       objectReference: {fileID: 2102943046}
+    - target: {fileID: 5129737090826216647, guid: 84c1293af0a00464880190f149339120, type: 3}
+      propertyPath: maxHp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5211718538818971468, guid: 84c1293af0a00464880190f149339120, type: 3}
       propertyPath: Torch
       value: 
