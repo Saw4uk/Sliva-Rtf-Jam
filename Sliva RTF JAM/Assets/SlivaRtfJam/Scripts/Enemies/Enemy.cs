@@ -54,7 +54,8 @@ public class Enemy : MonoBehaviour
 
         animator.SetTrigger("Die");
         aiLerp.canMove = false;
-        SfxManager.Instance.PlayOneShot(deadSfxs);
+        if(deadSfxs is { Count: > 0 })
+            SfxManager.Instance.PlayOneShot(deadSfxs);
         StartCoroutine(DestroySelf());
     }
 
@@ -116,7 +117,8 @@ public class Enemy : MonoBehaviour
     protected virtual void Attack()
     {
         animator.SetTrigger("Attack");
-        SfxManager.Instance.PlayOneShot(attackSfxs);
+        if(attackSfxs is { Count: > 0 })
+            SfxManager.Instance.PlayOneShot(attackSfxs);
         DealDamage(currentTarget.GetComponent<Healthable>());
         timeToAttack = attackSpeed;
     }
