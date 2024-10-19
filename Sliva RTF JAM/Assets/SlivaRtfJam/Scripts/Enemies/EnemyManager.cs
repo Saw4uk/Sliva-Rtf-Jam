@@ -6,6 +6,7 @@ using DefaultNamespace;
 using Pathfinding;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Random = DefaultNamespace.Random;
 
@@ -21,7 +22,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private WaweInfoDrawer waweInfoDrawer;
     public static EnemyManager Instance;
     private int currentWaveNumber;
-    public UnityEvent OnWaveEnded;
+    // public UnityEvent OnWaveEnded;
     public UnityEvent OnWaveStarted;
     public bool IsAllEnemiesSpawned;
     public int EnemiesCount;
@@ -72,6 +73,8 @@ public class EnemyManager : MonoBehaviour
 
     public IEnumerator SpawnNextWave()
     {
+        if (currentWaveNumber == waves.Count)
+            SceneManager.LoadScene(3);
         waweInfoDrawer.DrawNoWawe(timeBetweenWaves);
         yield return new WaitForSeconds(timeBetweenWaves);
         waweInfoDrawer.DrawWawe(currentWaveNumber);

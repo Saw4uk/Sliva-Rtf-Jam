@@ -36,7 +36,6 @@ namespace SlivaRtfJam.Scripts.Guns
             {
                 // if (TryGetComponent(out Healthable healthable))
                 if (other.CompareTag("Player") && beatType is Beat.Player or Beat.Both
-                    // || other.CompareTag("Enemy") && beatType is Beat.Enemy or Beat.Both
                    )
                 {
                     healthable.TakeDamage(damage);
@@ -50,6 +49,10 @@ namespace SlivaRtfJam.Scripts.Guns
                         HideObj();
                     }
                 }
+            }
+            else if (other.GetComponent<BorderGenerator>() && beatType is Beat.Enemy)
+            {
+                HideObj();
             }
         }
 

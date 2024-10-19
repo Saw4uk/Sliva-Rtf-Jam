@@ -321,7 +321,7 @@ MonoBehaviour:
   attackDetector: {fileID: 129866714050097660}
   attackSpeed: 5
   glitchedPrefab: {fileID: 2073015428867075447, guid: 8f10e19073a66894788393741963a411, type: 3}
-  projectilePrefab: {fileID: 4083980763915110323, guid: f2241f668690e49429a000ca6a933a33, type: 3}
+  projectilePrefab: {fileID: 4083980763915110323, guid: c25850b70542e0340b477bf337ad5281, type: 3}
   projectileSpeed: 1
   pointToSpawnProjectile: {fileID: 9158329279898742157}
 --- !u!58 &8174150068110752440
@@ -353,7 +353,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

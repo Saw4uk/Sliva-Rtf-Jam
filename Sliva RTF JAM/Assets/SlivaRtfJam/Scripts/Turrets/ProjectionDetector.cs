@@ -26,7 +26,18 @@ namespace DefaultNamespace
             if (other.TryGetComponent(out Enemy enemy))
             {
                 Debug.Log("Exit " + enemy.name);
+                enemy.StillInLight = false;
                 StartCoroutine(enemy.TurnIntoGlitch());
+            }
+
+            // other.HideSelf
+        }
+
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (other.TryGetComponent(out Enemy enemy))
+            {
+                enemy.StillInLight = true;
             }
 
             // other.HideSelf

@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/SlivaRtfJam/Scenes/TestBorder.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/SlivaRtfJam/Scenes/FInalLevel.unity
+    guid: 3bc10932e3e400749a76d608a2f68947
+  - enabled: 1
+    path: Assets/SlivaRtfJam/Scenes/MainMenu.unity
+    guid: c890878be5873c1469ba3ca634baf3de
+  - enabled: 1
+    path: Assets/SlivaRtfJam/Scenes/LoseScene.unity
+    guid: f05008283b60f9548aa202deb8dff08d
+  - enabled: 1
+    path: Assets/SlivaRtfJam/Scenes/WinScene.unity
+    guid: ceb13f2b7363cba4bbb3ff627cbd9a66
   m_configObjects: {}
