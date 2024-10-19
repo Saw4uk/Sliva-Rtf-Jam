@@ -731,7 +731,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1033,6 +1033,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1850814359821157750, guid: fccc46fd2e5de5546bf113535614d1e6, type: 3}
+      propertyPath: m_Radius
+      value: 0.40444732
+      objectReference: {fileID: 0}
     - target: {fileID: 8650717932128548114, guid: fccc46fd2e5de5546bf113535614d1e6, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1075,6 +1079,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopTrigger: {fileID: 4474931368986353786}
   costInMoney: 10
+  buySfxs:
+  - {fileID: 8300000, guid: b4715c55a9ee77d4282287494f5374ca, type: 3}
+  - {fileID: 8300000, guid: 1076bda7e6581014e8fc04be67691a66, type: 3}
   showOnBuySoldier:
     m_PersistentCalls:
       m_Calls:

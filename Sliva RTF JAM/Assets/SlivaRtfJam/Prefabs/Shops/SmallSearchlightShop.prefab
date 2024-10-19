@@ -71,6 +71,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopTrigger: {fileID: 9004012501265022873}
   costInMoney: 30
+  buySfxs:
+  - {fileID: 8300000, guid: b4715c55a9ee77d4282287494f5374ca, type: 3}
+  - {fileID: 8300000, guid: 1076bda7e6581014e8fc04be67691a66, type: 3}
   showOnBuy:
     m_PersistentCalls:
       m_Calls:
@@ -135,7 +138,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3463977
 --- !u!50 &7413977708173584919
 Rigidbody2D:
   serializedVersion: 4
@@ -504,7 +507,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -750,7 +753,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

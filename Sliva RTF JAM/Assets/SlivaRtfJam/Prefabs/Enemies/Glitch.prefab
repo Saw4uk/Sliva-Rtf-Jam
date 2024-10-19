@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 1e+11
+  HpBar: {fileID: 0}
   OnChangeHp:
     m_PersistentCalls:
       m_Calls: []
@@ -403,14 +404,25 @@ MonoBehaviour:
   damage: 1
   visionDetector: {fileID: 3494855142670306467}
   attackDetector: {fileID: 129866714050097660}
+  attackSfxs:
+  - {fileID: 8300000, guid: b453b2d25c72cb8418cb13b21fad149d, type: 3}
+  - {fileID: 8300000, guid: e43aa2c14d700374f94c58d5aa044e56, type: 3}
+  - {fileID: 8300000, guid: 26af14ba94c47c74881bf7684d631e39, type: 3}
+  - {fileID: 8300000, guid: 225f2baa99b9e8748b62ee798b63c186, type: 3}
+  deadSfxs: []
   attackSpeed: 1
   glitchedPrefab: {fileID: 2073015428867075447}
+  StillInLight: 0
   projectilePrefab: {fileID: 4083980763915110323, guid: c25850b70542e0340b477bf337ad5281, type: 3}
   projectileSpeed: 3
   pointToSpawnProjectile: {fileID: 2450040310861117608}
   cockroachPrefab: {fileID: 2073015428867075447, guid: 00794f6085aacbe46aaa98ce82a12d66, type: 3}
   bugPrefab: {fileID: 2073015428867075447, guid: 6d7f4dd147f46e84a845b75ee96de4e4, type: 3}
   ratPrefab: {fileID: 2073015428867075447, guid: 02ac434fb0462774593329ef6f0cc7b2, type: 3}
+  morphSfxs:
+  - {fileID: 8300000, guid: cc16518cec8f5244b864d8c7db5a4278, type: 3}
+  - {fileID: 8300000, guid: f166576a4e7ac6c45bf8fcf968e935fa, type: 3}
+  - {fileID: 8300000, guid: a8ca29d37464c2947bcc6f4037a9a35c, type: 3}
 --- !u!50 &6625262948424752082
 Rigidbody2D:
   serializedVersion: 4
