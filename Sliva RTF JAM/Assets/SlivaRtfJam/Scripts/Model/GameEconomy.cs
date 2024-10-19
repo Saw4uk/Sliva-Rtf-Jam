@@ -33,7 +33,7 @@ namespace SlivaRtfJam.Scripts.Model
                 throw new Exception("Singleton two");
             }
 
-            Money = 50;
+            Money = 250;
         }
     }
 }

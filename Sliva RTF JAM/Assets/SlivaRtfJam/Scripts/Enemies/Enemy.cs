@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     private AILerp aiLerp;
     [SerializeField] private Transform glitchedPrefab;
     private bool isDestroyingSelf;
+    public bool IsDestroyingSelf => isDestroyingSelf;
 
     void Start()
     {
@@ -39,6 +40,11 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        if (isDestroyingSelf)
+        {
+            return;
+        }
+
         animator.SetTrigger("Die");
         aiLerp.canMove = false;
         StartCoroutine(DestroySelf());
@@ -241,7 +247,8 @@ public class Enemy : MonoBehaviour
     {
         if (isDestroyingSelf)
         {
-            yield break;;
+            yield break;
+            ;
         }
 
         yield return new WaitForSeconds(1f);
