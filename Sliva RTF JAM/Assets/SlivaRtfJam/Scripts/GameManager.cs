@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using SlivaRtfJam.Scripts;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -68,6 +69,6 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("You Lost");
+        SceneManager.LoadScene(2);
     }
 }
