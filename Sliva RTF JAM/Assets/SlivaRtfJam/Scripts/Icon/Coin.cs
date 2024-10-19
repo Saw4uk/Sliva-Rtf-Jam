@@ -6,7 +6,6 @@ public class Coin : MonoBehaviour
 {
     [SerializeField] private int value;
 
-    // Start is called before the first frame update
     public int PickUp()
     {
         Destroy(gameObject);

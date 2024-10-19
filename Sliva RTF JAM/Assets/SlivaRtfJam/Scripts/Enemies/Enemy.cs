@@ -11,6 +11,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float damage;
     [SerializeField] private EnemyVisionDetector visionDetector;
     [SerializeField] private EnemyAttackDetector attackDetector;
+
+    [Header("Sfx")]
+    [SerializeField] private List<AudioClip> attackSfxs;
+    [SerializeField] private List<AudioClip> deadSfxs;
+
     private Transform defaultTarget;
     private Transform currentTarget;
     public Transform DefaultTarget => defaultTarget;
@@ -49,6 +54,7 @@ public class Enemy : MonoBehaviour
 
         animator.SetTrigger("Die");
         aiLerp.canMove = false;
+        SfxManager.Instance.PlayOneShot(deadSfxs);
         StartCoroutine(DestroySelf());
     }
 
@@ -125,6 +131,7 @@ public class Enemy : MonoBehaviour
     protected virtual void Attack()
     {
         animator.SetTrigger("Attack");
+        SfxManager.Instance.PlayOneShot(attackSfxs);
         DealDamage(currentTarget.GetComponent<Healthable>());
         timeToAttack = attackSpeed;
     }

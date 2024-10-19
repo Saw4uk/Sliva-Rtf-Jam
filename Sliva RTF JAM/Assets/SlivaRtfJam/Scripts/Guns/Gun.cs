@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -33,6 +34,10 @@ namespace SlivaRtfJam.Scripts.Guns
         [SerializeField] protected float bulletDegreeRandomDegrees;
         [SerializeField] protected int maxAmmo;
         [SerializeField] protected float reloadSpeedInSeconds;
+
+        [Header("Sfx")]
+        [SerializeField] private List<AudioClip> shootingSfxs;
+        [SerializeField] private List<AudioClip> reloadSfxs;
 
 
         private bool isReloading;
@@ -115,6 +120,7 @@ namespace SlivaRtfJam.Scripts.Guns
             remainingShootingDelay = shootingDelay;
             shootAnimator.Animate(remainingShootingDelay);
             gunAnimator.SetTrigger("Shoot");
+            SfxManager.Instance.PlayOneShot(shootingSfxs);
         }
         
 
@@ -148,7 +154,10 @@ namespace SlivaRtfJam.Scripts.Guns
 
             isReloading = true;
             gunAnimator.SetTrigger("Reload");
+            SfxManager.Instance.PlayOneShot(reloadSfxs);
+
             yield return new WaitForSeconds(reloadSpeedInSeconds);
+
             currentAmmoTotal += currentAmmoInMag;
             currentAmmoInMag = 0;
             var ammo = Math.Min(MaxAmmo, CurrentAmmoTotal);
