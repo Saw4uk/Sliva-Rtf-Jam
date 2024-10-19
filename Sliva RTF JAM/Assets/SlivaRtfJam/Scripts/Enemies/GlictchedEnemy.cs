@@ -13,6 +13,9 @@ public class GlitchedEnemy : RangedEnemy
     [SerializeField] private Transform bugPrefab;
     [SerializeField] private Transform ratPrefab;
 
+    [Header("Sfx")]
+    [SerializeField] private List<AudioClip> morphSfxs; 
+
     public void TurnIntoSomething()
     {
         Destroy(gameObject);
@@ -20,10 +23,12 @@ public class GlitchedEnemy : RangedEnemy
             transform.position, transform.rotation);
         enemy.GetComponent<Enemy>().SetDefaultTarget(DefaultTarget);
         enemy.GetComponent<Enemy>().ChangeTarget(CurrentTarget);
+        SfxManager.Instance.PlayOneShot(morphSfxs);
     }
 
     public override IEnumerator TurnIntoGlitch()
     {
+        SfxManager.Instance.PlayOneShot(morphSfxs);
         yield break;
     }
     // protected override void Attack()

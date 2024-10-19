@@ -299,6 +299,13 @@ MonoBehaviour:
   damage: 5
   visionDetector: {fileID: 3494855142670306467}
   attackDetector: {fileID: 129866714050097660}
+  attackSfxs:
+  - {fileID: 8300000, guid: b4342a193ae910c42861fee85af1cb91, type: 3}
+  deadSfxs:
+  - {fileID: 8300000, guid: b44e57385d725874f9d2feba02128c10, type: 3}
+  - {fileID: 8300000, guid: f8d6a784c4040a74bb4414233319052e, type: 3}
+  - {fileID: 8300000, guid: 4c44dfea7a079864b9a921f12d0486e8, type: 3}
+  - {fileID: 8300000, guid: ceaa22e0ab8847941b70ee699d1ae302, type: 3}
   attackSpeed: 1
   glitchedPrefab: {fileID: 2073015428867075447, guid: 8f10e19073a66894788393741963a411, type: 3}
   StillInLight: 0

@@ -1,4 +1,5 @@
 using SlivaRtfJam.Scripts.Model;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,9 @@ namespace SlivaRtfJam.Scripts.Shop
     {
         [SerializeField] private ShopTrigger shopTrigger;
         [SerializeField] private int costInMoney;
+
+        [Header("Sfx")]
+        [SerializeField] private List<AudioClip> buySfxs;
 
         public UnityEvent showOnBuySoldier;
         public UnityEvent hideOnBuy;
@@ -41,6 +45,8 @@ namespace SlivaRtfJam.Scripts.Shop
             {
                 GameEconomy.Instance.Money -= costInMoney;
                 playerModel.HealsAmount += 1;
+                SfxManager.Instance.PlayOneShot(buySfxs);
+
                 if(GameEconomy.Instance.Money < costInMoney)
                     InvokeHideOnBuy(null);
             }
