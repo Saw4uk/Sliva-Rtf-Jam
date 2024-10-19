@@ -6,7 +6,7 @@ namespace DefaultNamespace
     {
         public static T GetRandomElement<T>(this List<T> list)
         {
-            return list[UnityEngine.Random.Range(0, list.Count)];
+            return list[UnityEngine.Random.Range(0, list.Count - 1)];
         }
     }
 }
