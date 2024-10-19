@@ -21,7 +21,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private WaweInfoDrawer waweInfoDrawer;
     public static EnemyManager Instance;
     private int currentWaveNumber;
-    public UnityEvent OnWaveEnded;
+    // public UnityEvent OnWaveEnded;
     public UnityEvent OnWaveStarted;
     public bool IsAllEnemiesSpawned;
     public int EnemiesCount;
