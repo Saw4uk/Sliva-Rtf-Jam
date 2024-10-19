@@ -12456,6 +12456,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2102943046}
     - target: {fileID: 5211718538818971468, guid: 84c1293af0a00464880190f149339120, type: 3}
+      propertyPath: Torch
+      value: 
+      objectReference: {fileID: 4406014849440786476, guid: 2571acc0891f70e469275315244e9323, type: 3}
+    - target: {fileID: 5211718538818971468, guid: 84c1293af0a00464880190f149339120, type: 3}
       propertyPath: constructionTilemap
       value: 
       objectReference: {fileID: 1729989991}
