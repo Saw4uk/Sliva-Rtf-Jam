@@ -32,11 +32,24 @@ namespace SlivaRtfJam.Scripts.Guns
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Player") && beatType is Beat.Player or Beat.Both ||
-                other.CompareTag("Enemy") && beatType is Beat.Enemy or Beat.Both)
+            if (other.TryGetComponent(out Healthable healthable))
             {
-                other.GetComponent<Healthable>().TakeDamage(damage);
-                HideObj();
+                // if (TryGetComponent(out Healthable healthable))
+                if (other.CompareTag("Player") && beatType is Beat.Player or Beat.Both
+                    // || other.CompareTag("Enemy") && beatType is Beat.Enemy or Beat.Both
+                   )
+                {
+                    healthable.TakeDamage(damage);
+                    HideObj();
+                }
+                else if (other.TryGetComponent(out Enemy enemy) && beatType is Beat.Enemy or Beat.Both)
+                {
+                    if (!enemy.IsDestroyingSelf)
+                    {
+                        healthable.TakeDamage(damage);
+                        HideObj();
+                    }
+                }
             }
         }
 
@@ -54,6 +67,7 @@ namespace SlivaRtfJam.Scripts.Guns
             }
         }
     }
+
     public enum Beat
     {
         Player,
