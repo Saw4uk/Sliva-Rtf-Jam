@@ -18,7 +18,7 @@ namespace DefaultNamespace
             set
             {
                 // hp = Math.Min(value, maxHp);
-                
+
                 hp = Math.Clamp(value, 0, maxHp);
                 HpBar?.DrawProgress(hp / maxHp);
                 OnChangeHp?.Invoke(hp, maxHp);
@@ -39,6 +39,11 @@ namespace DefaultNamespace
         public void TakeDamage(float damage)
         {
             Hp -= damage;
+        }
+
+        public void RestoreHalfHP()
+        {
+            Hp = maxHp / 2;
         }
     }
 }

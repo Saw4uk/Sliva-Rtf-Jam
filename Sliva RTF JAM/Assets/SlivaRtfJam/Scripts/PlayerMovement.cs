@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,11 +12,17 @@ public class PlayerMovement : MonoBehaviour
     private bool isBlocked;
     public bool isBlockedMovement { get; set; }
     private Vector2 direction;
+    private bool isDied;
 
     public bool IsBlocked
     {
         get => isBlocked;
         set => isBlocked = value;
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.OnWaveEnded.AddListener(TryRevive);
     }
 
     public event Action<GameObject> OnUseShop;
@@ -53,6 +61,27 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetTrigger("Die");
         IsBlocked = true;
+        StartCoroutine(Disappear());
+    }
+
+    public IEnumerator Disappear()
+    {
+        yield return new WaitForSeconds(2f);
+        isDied = true;
+        gameObject.SetActive(false);
+    }
+
+    public void TryRevive()
+    {
+        if (!isDied)
+        {
+            return;
+        }
+
+        isDied = false;
+        GetComponent<Healthable>().RestoreHalfHP();
+        Release();
+        gameObject.SetActive(true);
     }
 
     public void Release()

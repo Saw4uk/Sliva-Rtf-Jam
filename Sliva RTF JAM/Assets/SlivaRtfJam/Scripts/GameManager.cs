@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
 using SlivaRtfJam.Scripts;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -11,8 +13,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<BorderGenerator> borderGenerators;
     [SerializeField] private AstarPath astarPath;
     private int needScanNextFrame;
+    public UnityEvent OnWaveEnded;
+    public static GameManager Instance;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        if (Instance is not null)
+        {
+            Destroy(Instance);
+        }
+
+        Instance = this;
+    }
+
     void Start()
     {
         enemiesTargetHealth.OnDie.AddListener(GameOver);
@@ -65,6 +79,7 @@ public class GameManager : MonoBehaviour
         // astarPath.Scan();
         needScanNextFrame = 1;
         StartCoroutine(EnemyManager.Instance.SpawnNextWave());
+        OnWaveEnded?.Invoke();
     }
 
     private void GameOver()
