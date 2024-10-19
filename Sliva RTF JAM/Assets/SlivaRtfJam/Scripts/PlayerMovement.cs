@@ -48,4 +48,15 @@ public class PlayerMovement : MonoBehaviour
             OnUseShop?.Invoke(gameObject);
         }
     }
+
+    public void Die()
+    {
+        animator.SetTrigger("Die");
+        IsBlocked = true;
+    }
+
+    public void Release()
+    {
+        IsBlocked = false;
+    }
 }
