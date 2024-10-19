@@ -42,7 +42,7 @@ namespace Moonsters
 
     public enum VolumeGroup
     {
-        SFX,
+        Sfx,
         Music
     }
 }

@@ -58,5 +58,10 @@ namespace SlivaRtfJam.Scripts.Model
             isHealing = false;
             endHealing.Invoke();
         }
+
+        public void WARRIOR_WALLK_ANIMATION()
+        {
+
+        }
     }
 }

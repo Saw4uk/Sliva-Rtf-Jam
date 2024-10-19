@@ -11,6 +11,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float damage;
     [SerializeField] private EnemyVisionDetector visionDetector;
     [SerializeField] private EnemyAttackDetector attackDetector;
+
+    [Header("Sfx")]
+    [SerializeField] private List<AudioClip> attackSfxs;
+    [SerializeField] private List<AudioClip> deadSfxs;
+
     private Transform defaultTarget;
     private Transform currentTarget;
     public Transform DefaultTarget => defaultTarget;
@@ -26,6 +31,7 @@ public class Enemy : MonoBehaviour
     private bool isDestroyingSelf;
     public bool IsDestroyingSelf => isDestroyingSelf;
     public static Action OnAnyEnemyDied;
+    public bool StillInLight;
 
     void Start()
     {
@@ -48,6 +54,7 @@ public class Enemy : MonoBehaviour
 
         animator.SetTrigger("Die");
         aiLerp.canMove = false;
+        SfxManager.Instance.PlayOneShot(deadSfxs);
         StartCoroutine(DestroySelf());
     }
 
@@ -109,6 +116,7 @@ public class Enemy : MonoBehaviour
     protected virtual void Attack()
     {
         animator.SetTrigger("Attack");
+        SfxManager.Instance.PlayOneShot(attackSfxs);
         DealDamage(currentTarget.GetComponent<Healthable>());
         timeToAttack = attackSpeed;
     }
@@ -250,10 +258,14 @@ public class Enemy : MonoBehaviour
         if (isDestroyingSelf)
         {
             yield break;
-            ;
         }
 
         yield return new WaitForSeconds(1f);
+        if (StillInLight)
+        {
+            yield break;
+        }
+
         Destroy(gameObject);
         var glitch = Instantiate(glitchedPrefab, transform.position, transform.rotation);
         glitch.GetComponent<GlitchedEnemy>().SetDefaultTarget(defaultTarget);

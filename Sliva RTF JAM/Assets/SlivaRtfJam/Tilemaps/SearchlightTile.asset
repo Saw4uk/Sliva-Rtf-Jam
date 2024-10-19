@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SearchlightTile
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 0}
-  m_DefaultGameObject: {fileID: 4406014849440786476, guid: 2571acc0891f70e469275315244e9323, type: 3}
+  m_DefaultGameObject: {fileID: 5870876132122031812, guid: 11a18e030a089cb44bc3088e6199aadc, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules: []
