@@ -143,14 +143,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.33333334
-    functionName: WARRIOR_WALLK_ANIMATION
+    functionName: WALLK_ANIMATION
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6333333
-    functionName: WARRIOR_WALLK_ANIMATION
+  - time: 0.75
+    functionName: WALLK_ANIMATION
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
