@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyAttackDetector attackDetector;
 
     [Header("Sfx")]
-    [SerializeField] private List<AudioClip> attackSfxs;
+    [SerializeField] protected List<AudioClip> attackSfxs;
     [SerializeField] private List<AudioClip> deadSfxs;
 
     private Transform defaultTarget;
@@ -133,7 +133,7 @@ public class Enemy : MonoBehaviour
     {
         animator.SetTrigger("Attack");
         if(attackSfxs is { Count: > 0 })
-            SfxManager.Instance.PlayOneShot(attackSfxs);
+        SfxManager.Instance.PlayOneShot(attackSfxs);
         DealDamage(currentTarget.GetComponent<Healthable>());
         timeToAttack = attackSpeed;
     }

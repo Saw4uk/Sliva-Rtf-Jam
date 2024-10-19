@@ -36,8 +36,8 @@ namespace SlivaRtfJam.Scripts.Guns
         [SerializeField] protected float reloadSpeedInSeconds;
 
         [Header("Sfx")]
-        [SerializeField] private List<AudioClip> shootingSfxs;
-        [SerializeField] private List<AudioClip> reloadSfxs;
+        [SerializeField] protected List<AudioClip> shootingSfxs;
+        [SerializeField] protected List<AudioClip> reloadSfxs;
 
 
         private bool isReloading;

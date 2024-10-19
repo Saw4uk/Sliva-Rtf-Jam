@@ -20,6 +20,7 @@ public class RangedEnemy : Enemy
         // var projectile = Instantiate(projectilePrefab, transform.position,
         //     Quaternion.Euler(direction));
         // projectile.LaunchProjectile(direction, projectileSpeed, damage, Beat.Player);
+        SfxManager.Instance.PlayOneShot(attackSfxs);
         StartCoroutine(SpawnProjectile());
         timeToAttack = attackSpeed;
     }

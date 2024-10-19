@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using SlivaRtfJam.Scripts.Guns;
 using SlivaRtfJam.Scripts.Model;
 using UnityEngine;
@@ -11,6 +12,9 @@ namespace SlivaRtfJam.Scripts.Shop
         [SerializeField] private ShopTrigger shopTrigger;
         [SerializeField] private int costInMoney;
         [SerializeField] private GunType unblockedGunType;
+
+        [Header("Sfx")]
+        [SerializeField] private List<AudioClip> buySfxs;
         
         public UnityEvent showOnBuy;
         public UnityEvent hideOnBuy;
@@ -42,6 +46,7 @@ namespace SlivaRtfJam.Scripts.Shop
             {
                 GameEconomy.Instance.Money -= costInMoney;
                 shooting.UnblockGun(unblockedGunType);
+                SfxManager.Instance.PlayOneShot(buySfxs);
                 InvokeHideOnBuy(null);
             }
         }
