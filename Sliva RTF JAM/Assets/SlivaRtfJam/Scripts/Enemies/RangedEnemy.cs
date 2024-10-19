@@ -26,8 +26,8 @@ public class RangedEnemy : Enemy
 
     private IEnumerator SpawnProjectile()
     {
-        yield return new WaitForSeconds(0.5f);
-        var direction = CurrentTarget.position - transform.position;
+        yield return new WaitForSeconds(0.33f);
+        var direction = CurrentTarget.position - pointToSpawnProjectile.position;
         var projectile = Instantiate(projectilePrefab, pointToSpawnProjectile.position,
             Quaternion.Euler(direction));
         projectile.LaunchProjectile(direction, projectileSpeed, damage, Beat.Player);

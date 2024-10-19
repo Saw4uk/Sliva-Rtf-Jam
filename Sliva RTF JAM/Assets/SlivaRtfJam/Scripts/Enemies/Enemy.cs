@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform glitchedPrefab;
     private bool isDestroyingSelf;
     public bool IsDestroyingSelf => isDestroyingSelf;
+    public static Action OnAnyEnemyDied;
 
     void Start()
     {
@@ -55,6 +56,7 @@ public class Enemy : MonoBehaviour
         isDestroyingSelf = true;
         yield return new WaitForSeconds(1f);
         GetComponent<CoinDropper>().DropCoin();
+        OnAnyEnemyDied?.Invoke();
         Destroy(gameObject);
     }
 
