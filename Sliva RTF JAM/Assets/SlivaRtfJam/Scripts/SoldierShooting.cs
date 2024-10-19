@@ -24,12 +24,17 @@ public class SoldierShooting : MonoBehaviour
         get => chosedGun;
         set
         {
-            if(chosedGun != null)
+            if (chosedGun != null)
+            {
                 chosedGun.ammoChanged.RemoveListener(OnChosedGunAmmoChanged);
+                chosedGun.endReloading.RemoveListener(EndReloading);
+            }
+                
             chosedGun = value;
             if (chosedGun != null)
             {
                 chosedGun.ammoChanged.AddListener(OnChosedGunAmmoChanged);
+                chosedGun.endReloading.AddListener(EndReloading);
                 AmmoChanged.Invoke(chosedGun.CurrentAmmo, chosedGun.CurrentAmmoTotal);
             }
         }
@@ -42,6 +47,8 @@ public class SoldierShooting : MonoBehaviour
 
     public UnityEvent<int, int> AmmoChanged;
     public UnityEvent GunParametersChanged;
+    public UnityEvent startReloading;
+    public UnityEvent endReloading;
 
     private void Awake()
     {
@@ -105,6 +112,21 @@ public class SoldierShooting : MonoBehaviour
     public void ChooseRifle()
     {
         ChoseGun(GunType.Rifle);
+    }
+    
+    
+    public void StartReload()
+    {
+        if (!ChosedGun.IsFullAmmo && ChosedGun.CurrentAmmoTotal > 0 && ChosedGun.IsReloading == false)
+        {
+            startReloading.Invoke();
+            StartCoroutine(ChosedGun.Reload());
+        }
+    }
+
+    private void EndReloading()
+    {
+        endReloading.Invoke();
     }
     
     public void UnblockGun(GunType gunType)

@@ -35,15 +35,17 @@ namespace SlivaRtfJam.Scripts.Guns
         [SerializeField] protected float reloadSpeedInSeconds;
 
 
+        private bool isReloading;
         protected bool isShooting;
         protected float remainingShootingDelay;
         protected int currentAmmoInMag;
         protected int currentAmmoTotal;
         protected int magUpgradesAmount = 2;
 
-        
+        public bool IsReloading => isReloading;
+
         public UnityEvent<int> ammoChanged;
-        public UnityEvent startReloading;
+        public UnityEvent endReloading;
 
         public int CurrentAmmo
         {
@@ -91,7 +93,7 @@ namespace SlivaRtfJam.Scripts.Guns
 
         public virtual void OnShoot(InputAction.CallbackContext context)
         {
-            if(!isActiveAndEnabled)
+            if(!isActiveAndEnabled || IsReloading)
             {
                 return;
             }
@@ -105,6 +107,7 @@ namespace SlivaRtfJam.Scripts.Guns
 
         protected virtual void MakeShoot()
         {
+            if(IsReloading) return;
             var gunTransform = transform;
             var rads = (gunTransform.rotation.eulerAngles.z + Random.Range(-bulletDegreeRandomDegrees, + bulletDegreeRandomDegrees)) * Mathf.Deg2Rad;
             var direction = new Vector3(Mathf.Cos(rads), Mathf.Sin(rads), 0);
@@ -117,7 +120,7 @@ namespace SlivaRtfJam.Scripts.Guns
 
         protected virtual void Shoot(Vector2 direction, Vector3 shootPosition)
         {
-            if(!isActiveAndEnabled)
+            if(!isActiveAndEnabled || IsReloading)
             {
                 return;
             }
@@ -138,15 +141,21 @@ namespace SlivaRtfJam.Scripts.Guns
 
         public IEnumerator Reload()
         {
-            if (!isActiveAndEnabled || CurrentAmmoTotal == 0)
+            if (!isActiveAndEnabled || CurrentAmmoTotal == 0 || IsReloading)
             {
                 yield break;
             }
 
+            isReloading = true;
+            gunAnimator.SetTrigger("Reload");
             yield return new WaitForSeconds(reloadSpeedInSeconds);
+            currentAmmoTotal += currentAmmoInMag;
+            currentAmmoInMag = 0;
             var ammo = Math.Min(MaxAmmo, CurrentAmmoTotal);
             CurrentAmmoTotal -= ammo;
             CurrentAmmo += ammo;
+            isReloading = false;
+            endReloading.Invoke();
         }
     }
 }
