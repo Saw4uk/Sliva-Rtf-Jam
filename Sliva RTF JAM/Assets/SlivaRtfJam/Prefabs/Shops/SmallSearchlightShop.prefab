@@ -71,6 +71,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopTrigger: {fileID: 9004012501265022873}
   costInMoney: 30
+  buySfxs:
+  - {fileID: 8300000, guid: b4715c55a9ee77d4282287494f5374ca, type: 3}
+  - {fileID: 8300000, guid: 1076bda7e6581014e8fc04be67691a66, type: 3}
   showOnBuy:
     m_PersistentCalls:
       m_Calls:
