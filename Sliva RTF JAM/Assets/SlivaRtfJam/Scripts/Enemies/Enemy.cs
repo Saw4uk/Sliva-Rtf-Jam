@@ -76,13 +76,28 @@ public class Enemy : MonoBehaviour
         }
 
         var currentRotation = transform.rotation;
-        if (currentTarget.position.x < transform.position.x)
+        if (aiLerp.velocity.x < 0)
+            // if (currentTarget.position.x < transform.position.x)
         {
             currentRotation.y = 180;
         }
-        else
+        else if (aiLerp.velocity.x > 0)
         {
             currentRotation.y = 0;
+        }
+        else
+        {
+            if (aiLerp.velocity.magnitude == 0)
+            {
+                if (currentTarget.position.x < transform.position.x)
+                {
+                    currentRotation.y = 180;
+                }
+                else
+                {
+                    currentRotation.y = 0;
+                }
+            }
         }
 
         transform.rotation = currentRotation;
