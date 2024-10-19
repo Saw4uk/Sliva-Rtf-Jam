@@ -120,7 +120,8 @@ namespace SlivaRtfJam.Scripts.Guns
             remainingShootingDelay = shootingDelay;
             shootAnimator.Animate(remainingShootingDelay);
             gunAnimator.SetTrigger("Shoot");
-            SfxManager.Instance.PlayOneShot(shootingSfxs);
+            if(shootingSfxs is { Count: > 0 })
+                SfxManager.Instance.PlayOneShot(shootingSfxs);
         }
         
 
@@ -154,7 +155,8 @@ namespace SlivaRtfJam.Scripts.Guns
 
             isReloading = true;
             gunAnimator.SetTrigger("Reload");
-            SfxManager.Instance.PlayOneShot(reloadSfxs);
+            if(reloadSfxs is { Count: > 0 })
+                SfxManager.Instance.PlayOneShot(reloadSfxs);
 
             yield return new WaitForSeconds(reloadSpeedInSeconds);
 

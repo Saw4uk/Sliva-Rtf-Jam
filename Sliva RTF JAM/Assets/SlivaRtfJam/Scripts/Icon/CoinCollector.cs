@@ -14,7 +14,8 @@ public class CoinCollector : MonoBehaviour
         if (other.TryGetComponent(out Coin coin))
         { 
             GameEconomy.Instance.Money += coin.PickUp();
-            SfxManager.Instance.PlayOneShot(collectSfxs);
+            if(collectSfxs is { Count: > 0 })
+                SfxManager.Instance.PlayOneShot(collectSfxs);
         }
     }
 }

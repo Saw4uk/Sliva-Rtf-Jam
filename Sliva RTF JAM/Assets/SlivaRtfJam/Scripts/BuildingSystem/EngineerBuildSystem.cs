@@ -11,6 +11,7 @@ public class EngineerBuildSystem : MonoBehaviour
     [SerializeField] private Tilemap constructionTilemap;
     [SerializeField] private TileBase searchlightTile;
     [SerializeField] private float timeToBuild;
+    [SerializeField] private GameObject Torch;
 
     private int searchlightCount;
     private bool isBuildTurnOn = false;
@@ -88,6 +89,8 @@ public class EngineerBuildSystem : MonoBehaviour
         {
             PlaceTile(position, tile);
             SearchlightCount--;
+            var instance = Instantiate(Torch);
+            instance.transform.position = transform.position;
             isBuildTurnOn = false;
         }
         
