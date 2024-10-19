@@ -13,30 +13,25 @@ namespace SlivaRtfJam.Scripts.Shop
         [SerializeField] private Transform rotator;
         [SerializeField] private float rotationSpeed = 50;
         private bool isActive;
+        private EngineerBuildSystem engeener;
+        private Vector3 engeenerPosition;
+        private bool activatedThisFrame;
 
         private void Awake()
         {
             shopTrigger.UseShopEvent += ShopTriggerOnUseShopEvent;
         }
-        
+
 
         private void ShopTriggerOnUseShopEvent(GameObject obj)
         {
             var builder = obj.GetComponent<EngineerBuildSystem>();
-            if (builder != null)
+            if (builder != null && !isActive)
             {
-                if (isActive)
-                {
-                    isActive = false;
-                    builder.GetComponent<PlayerMovement>().isBlockedMovement = false;
-                }
-                else
-                {
-                    isActive = true;
-                    builder.GetComponent<PlayerMovement>().isBlockedMovement = true;
-                }
-
-                builder.AddSearchlight(1);
+                isActive = true;
+                engeener = builder;
+                engeener.gameObject.SetActive(false);
+                activatedThisFrame = true;
             }
         }
 
@@ -56,6 +51,18 @@ namespace SlivaRtfJam.Scripts.Shop
             if (Input.GetKey(KeyCode.D))
             {
                 rotator.Rotate(-transform.forward, rotationSpeed * Time.deltaTime);
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (activatedThisFrame)
+                {
+                    activatedThisFrame = false;
+                    return;
+                }
+
+                isActive = false;
+                engeener.gameObject.SetActive(true);
             }
         }
     }
