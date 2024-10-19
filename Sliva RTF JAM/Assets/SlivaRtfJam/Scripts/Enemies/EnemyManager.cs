@@ -86,9 +86,18 @@ public class EnemyManager : MonoBehaviour
         IsAllEnemiesSpawned = false;
         currentWaveNumber++;
         OnWaveStarted?.Invoke();
+        var isFirstSmallWave = true;
         foreach (var smallWave in wave.SmallWaves)
         {
-            yield return new WaitForSeconds(wave.TimeBetween);
+            if (isFirstSmallWave)
+            {
+                isFirstSmallWave = false;
+            }
+            else
+            {
+                yield return new WaitForSeconds(wave.TimeBetween);
+            }
+
             yield return StartCoroutine(SpawnSmallWave(smallWave));
         }
 
