@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     private bool isDestroyingSelf;
     public bool IsDestroyingSelf => isDestroyingSelf;
     public static Action OnAnyEnemyDied;
+    public bool StillInLight;
 
     void Start()
     {
@@ -250,10 +251,14 @@ public class Enemy : MonoBehaviour
         if (isDestroyingSelf)
         {
             yield break;
-            ;
         }
 
         yield return new WaitForSeconds(1f);
+        if (StillInLight)
+        {
+            yield break;
+        }
+
         Destroy(gameObject);
         var glitch = Instantiate(glitchedPrefab, transform.position, transform.rotation);
         glitch.GetComponent<GlitchedEnemy>().SetDefaultTarget(defaultTarget);

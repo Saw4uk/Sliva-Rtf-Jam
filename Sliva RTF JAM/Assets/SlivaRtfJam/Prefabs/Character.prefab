@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 2332912120511300274}
   - component: {fileID: 4221995217297668688}
   - component: {fileID: 1839374832304883492}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.045, y: 0.008, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9026895321943108816}
@@ -590,6 +590,12 @@ MonoBehaviour:
   GunParametersChanged:
     m_PersistentCalls:
       m_Calls: []
+  startReloading:
+    m_PersistentCalls:
+      m_Calls: []
+  endReloading:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &5484094387059971616
 Rigidbody2D:
   serializedVersion: 4
@@ -651,7 +657,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.023286939}
   serializedVersion: 2
-  m_Radius: 0.276713
+  m_Radius: 0.25
 --- !u!114 &2332912120511300274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,6 +671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 80
+  HpBar: {fileID: 104974358752551803}
   OnChangeHp:
     m_PersistentCalls:
       m_Calls: []
@@ -1120,6 +1127,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4610b618197cd7845897d6cea553b9e5, type: 3}
+--- !u!114 &104974358752551803 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8429682984950388404, guid: 4610b618197cd7845897d6cea553b9e5, type: 3}
+  m_PrefabInstance: {fileID: 8469214385744065999}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93999258ee944616951dc2f1ec1ec3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &464742409904501875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8357459757972160956, guid: 4610b618197cd7845897d6cea553b9e5, type: 3}
