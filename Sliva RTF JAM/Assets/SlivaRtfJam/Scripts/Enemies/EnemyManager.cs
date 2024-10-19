@@ -18,6 +18,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private List<Wave> waves = new();
     [SerializeField] private Transform target;
     [SerializeField] private float timeBetweenWaves = 20;
+    [SerializeField] private WaweInfoDrawer waweInfoDrawer;
     public static EnemyManager Instance;
     private int currentWaveNumber;
     public UnityEvent OnWaveEnded;
@@ -71,7 +72,9 @@ public class EnemyManager : MonoBehaviour
 
     public IEnumerator SpawnNextWave()
     {
+        waweInfoDrawer.DrawNoWawe(timeBetweenWaves);
         yield return new WaitForSeconds(timeBetweenWaves);
+        waweInfoDrawer.DrawWawe(currentWaveNumber);
         StartCoroutine(SpawnWave(waves[currentWaveNumber]));
     }
 
