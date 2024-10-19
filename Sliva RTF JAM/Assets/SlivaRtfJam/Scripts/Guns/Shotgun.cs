@@ -44,6 +44,7 @@ namespace SlivaRtfJam.Scripts.Guns
             remainingShootingDelay = shootingDelay;
             shootAnimator.Animate(remainingShootingDelay);
             gunAnimator.SetTrigger("Shoot");
+            SfxManager.Instance.PlayOneShot(shootingSfxs);
             CurrentAmmo -= 1;
         }
     }
